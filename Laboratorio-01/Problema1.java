@@ -22,6 +22,7 @@ public class Problema1 {
         
         // Todo el trabajo con el arreglo
         ingresarNotas(notas);
+        ordenar(notas);
         mostrar(notas);
 
         sc.close();
@@ -70,13 +71,30 @@ public class Problema1 {
         }
     }
 
+    
     public static double hallarMediana (int [] notas) {
         return 0;
     }
 
-    public static void ordenar (int [] notas) {
 
+    public static void ordenar (int [] notas) {
+        
+        int maximo = notas.length - 1, temporal;
+
+        for (int i = 0 ; i < maximo ; i++) {
+            for (int j = 0 ; j < maximo - i; j++) {
+                
+                if (notas[j] > notas[j+1]) {            
+                    
+                    temporal   = notas[j];
+                    notas[j]   = notas[j+1];
+                    notas[j+1] = temporal;
+
+                }
+            }
+        }
     }
+
 
     public static int hallarModa (int [] notas) {
         return 0;
