@@ -12,7 +12,7 @@ public class Problema1 {
     static Scanner sc = new Scanner (System.in);
     public static void main (String [] args) {
 
-        int cantidad, moda = 0, notas [];
+        int cantidad, moda, notas [];
         double mediana, desviacion = 0;
 
         System.out.println("| CALIFICADOR DE ESTUDIANTES |");
@@ -24,6 +24,7 @@ public class Problema1 {
         // Todo el trabajo con el arreglo
         ingresarNotas(notas);
         mediana = hallarMediana(notas);
+        moda = hallarModa(notas);
 
         // Se muestran los datos
         System.out.println(
@@ -123,7 +124,21 @@ public class Problema1 {
 
 
     public static int hallarModa (int [] notas) {
-        return 0;
+        
+        int mayor = 0, contador [] = new int [21];
+        
+        // Va contando cada vez que aparece cierto número
+        for (int numero : notas) {
+            contador[ numero ]++;
+        }
+
+        // Halla PRIMER Y ÚNICO ELEMENTO que es la moda
+        for (int i = 1 ; i < notas.length ; i++) {
+            if (contador[mayor] < contador[i])
+                mayor = i;
+        }
+        
+        return mayor;
     }
 
     public static double hallarDesviacion (int [] notas) {
