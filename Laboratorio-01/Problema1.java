@@ -10,6 +10,8 @@ import java.util.Scanner;
 
 public class Problema1 {
     static Scanner sc = new Scanner (System.in);
+    static int NOTAMAXIMA = 20;
+
     public static void main (String [] args) {
 
         int cantidad, moda, notas [];
@@ -71,7 +73,7 @@ public class Problema1 {
             System.out.print("Ingrese la nota: ");
             nota = sc.nextInt();
 
-            if (nota < 0 || nota > 20) {
+            if (nota < 0 || nota > NOTAMAXIMA) {
                 System.out.println("Ingrese nota válida.");
             
             } else {
@@ -126,7 +128,7 @@ public class Problema1 {
 
     public static int hallarModa (int [] notas) {
         
-        int mayor = 0, contador [] = new int [21];
+        int mayor = 0, contador [] = new int [NOTAMAXIMA+1];
         
         // Va contando cada vez que aparece cierto número
         for (int numero : notas) {
@@ -134,7 +136,7 @@ public class Problema1 {
         }
 
         // Halla PRIMER Y ÚNICO ELEMENTO que es la moda
-        for (int i = 1 ; i < notas.length ; i++) {
+        for (int i = 1 ; i < contador.length ; i++) {
             if (contador[mayor] < contador[i])
                 mayor = i;
         }
@@ -163,12 +165,12 @@ public class Problema1 {
 
     public static double hallarPromedio (int [] numeros) {
         
-        int suma = 0;
+        double suma = 0;
 
         for (int numero : numeros)
             suma += numero;
 
-        return suma/5.0;
+        return suma/numeros.length;
     }
 
     public static double hallarPromedio (double [] numeros) {
@@ -178,6 +180,6 @@ public class Problema1 {
         for (double numero : numeros)
             suma += numero;
 
-        return suma/5.0;
+        return suma/numeros.length;
     }
 }
