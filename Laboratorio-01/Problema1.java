@@ -17,13 +17,21 @@ public class Problema1 {
         System.out.println("| CALIFICADOR DE ESTUDIANTES |");
         cantidad = ingresarCantidad();
         
+        // Se crea un arreglo para guardar las notas
         notas = new int [cantidad];
         
-        System.out.println("Cantidad del arreglo: "+notas.length);
+        // Todo el trabajo con el arreglo
+        ingresarNotas(notas);
+        mostrar(notas);
 
         sc.close();
     }
 
+    public static void mostrar(int notas []) {
+        for (int n : notas) {
+            System.out.println(n);
+        }
+    }
 
     public static int ingresarCantidad () {
         
@@ -44,7 +52,22 @@ public class Problema1 {
     
 
     public static void ingresarNotas (int [] notas) {
+        
+        int nota, i = 0;
 
+        // Ingresa y verifica la nota en un sistema vigesimal
+        while (i < notas.length) {
+            System.out.print("Ingrese la nota: ");
+            nota = sc.nextInt();
+
+            if (nota < 0 || nota > 20) {
+                System.out.println("Ingrese nota válida.");
+            
+            } else {
+                notas[i] = nota;
+                i++;
+            }
+        }
     }
 
     public static double hallarMediana (int [] notas) {
