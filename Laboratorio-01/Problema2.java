@@ -11,11 +11,19 @@ public class Problema2 {
     static Scanner sc = new Scanner(System.in);
 
     public static void main (String [] args) {
+        
+        boolean prueba [] = {true, true, false, false, true, false};
+        mostrar(prueba);
 
     }
 
 
-    public static void mostrar ( boolean numeros []) {
+    public static void mostrar ( boolean numeros []) {    
+        System.out.print ("_");
 
+        for (int i = 2 ; i < numeros.length ; i++) {
+            if (!numeros[i])
+                System.out.print (i+"_");
+        }
     }
 }
