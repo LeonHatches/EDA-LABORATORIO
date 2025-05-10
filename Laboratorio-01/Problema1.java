@@ -5,12 +5,45 @@
  * estándar.
  */
 
+import java.util.Scanner;
+
+
 public class Problema1 {
+    static Scanner sc = new Scanner (System.in);
     public static void main (String [] args) {
+
+        int cantidad, notas [];
+
+        System.out.println("| CALIFICADOR DE ESTUDIANTES |");
+        cantidad = ingresarCantidad();
         
+        notas = new int [cantidad];
+        
+        System.out.println("Cantidad del arreglo: "+notas.length);
+
+        sc.close();
     }
 
-    public static void ingresar (int [] notas) {
+
+    public static int ingresarCantidad () {
+        
+        int cantidad;
+
+        // Un do-while para garantizar la cantidad correcta
+        do {
+            System.out.print  ("Ingrese la cantidad de alumnos: ");
+            cantidad = sc.nextInt();
+            
+            if (cantidad < 1)
+                System.out.println("ERROR: Ingrese una cantidad correcta.");
+        
+        } while (cantidad < 1);
+
+        return cantidad;
+    }
+    
+
+    public static void ingresarNotas (int [] notas) {
 
     }
 
@@ -19,7 +52,7 @@ public class Problema1 {
     }
 
     public static void ordenar (int [] notas) {
-        
+
     }
 
     public static int hallarModa (int [] notas) {
