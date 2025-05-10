@@ -18,13 +18,26 @@ public class Problema2 {
         System.out.println("| CRIBA DE ERATOSTENES |");
         rango = ingresarRango();
 
+        // Se crea un arreglo en donde se marcarán "false"
+        // a los números primos y "true" a compuestos
         numeros = new boolean [rango + 1];
-        System.out.println(rango);
+
+        for (int i = 2 ; i*i < numeros.length ; i++) {
+            
+            if (!numeros[i]) {
+
+                for (int j = i ; i*j < numeros.length ; j++)
+                    numeros[i*j] = true;
+
+            }
+        }
+
+        mostrar(numeros);
     }
 
 
     public static void mostrar ( boolean numeros []) {    
-        System.out.print ("_");
+        System.out.print ("Los primos son: _");
 
         for (int i = 2 ; i < numeros.length ; i++) {
             if (!numeros[i])
