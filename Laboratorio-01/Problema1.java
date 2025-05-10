@@ -12,7 +12,8 @@ public class Problema1 {
     static Scanner sc = new Scanner (System.in);
     public static void main (String [] args) {
 
-        int cantidad, notas [];
+        int cantidad, moda = 0, notas [];
+        double mediana, desviacion = 0;
 
         System.out.println("| CALIFICADOR DE ESTUDIANTES |");
         cantidad = ingresarCantidad();
@@ -22,8 +23,15 @@ public class Problema1 {
         
         // Todo el trabajo con el arreglo
         ingresarNotas(notas);
-        ordenar(notas);
-        mostrar(notas);
+        mediana = hallarMediana(notas);
+
+        // Se muestran los datos
+        System.out.println(
+            "\n| RESULTADOS |:"+
+            "\nMediana: " + mediana +
+            "\nModa: "  + moda +
+            "\nDesviación: " + desviacion
+        );
 
         sc.close();
     }
@@ -73,7 +81,25 @@ public class Problema1 {
 
     
     public static double hallarMediana (int [] notas) {
-        return 0;
+        
+        double resultado;
+        int mitad;
+        
+        ordenar(notas);
+        
+        if (notas.length == 1)
+            return notas[0];
+        
+        // Si tiene elementos par, entonces la mediana será
+        // de dos elementos, en otro caso, es de uno.
+        mitad = notas.length/2;
+
+        if (notas.length % 2 == 0)
+            resultado = (notas[mitad] + notas[mitad-1])/2.0;
+        else
+            resultado = notas[mitad];
+        
+        return resultado;
     }
 
 
