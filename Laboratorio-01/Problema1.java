@@ -25,6 +25,8 @@ public class Problema1 {
         ingresarNotas(notas);
         mediana = hallarMediana(notas);
         moda = hallarModa(notas);
+        double promedio = hallarPromedio(notas);
+        System.out.println("PROMEDIO: " + promedio);
 
         // Se muestran los datos
         System.out.println(
@@ -145,7 +147,13 @@ public class Problema1 {
         return 0;
     }
 
-    public static double hallarPromedio (int [] notas) {
-        return 0;
+    public static double hallarPromedio (int [] numeros) {
+        
+        int suma = 0;
+
+        for (int numero : numeros)
+            suma += numero;
+
+        return suma/5.0;
     }
 }
