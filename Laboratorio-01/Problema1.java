@@ -13,9 +13,9 @@ public class Problema1 {
     public static void main (String [] args) {
 
         int cantidad, moda, notas [];
-        double mediana, desviacion = 0;
+        double mediana, desviacion;
 
-        System.out.println("| CALIFICADOR DE ESTUDIANTES |");
+        System.out.println ("| CALIFICADOR DE ESTUDIANTES |");
         cantidad = ingresarCantidad();
         
         // Se crea un arreglo para guardar las notas
@@ -23,17 +23,16 @@ public class Problema1 {
         
         // Todo el trabajo con el arreglo
         ingresarNotas(notas);
-        mediana = hallarMediana(notas);
-        moda = hallarModa(notas);
-        double promedio = hallarPromedio(notas);
-        System.out.println("PROMEDIO: " + promedio);
+        mediana    = hallarMediana(notas);
+        moda       = hallarModa(notas);
+        desviacion = hallarDesviacion(notas);
 
         // Se muestran los datos
         System.out.println(
             "\n| RESULTADOS |:"+
             "\nMediana: " + mediana +
             "\nModa: "  + moda +
-            "\nDesviación: " + desviacion
+            "\nDesviación: " + String.format("%.5f", desviacion)
         );
 
         sc.close();
@@ -144,7 +143,22 @@ public class Problema1 {
     }
 
     public static double hallarDesviacion (int [] notas) {
-        return 0;
+        
+        double promedioNotas, promedioDesvio;
+        double desvio [] = new double [notas.length];
+
+        promedioNotas = hallarPromedio(notas);
+
+        // Se calcula la diferencia de la nota con el promedio
+        // y se eleva al exponente 2
+        for (int i = 0 ; i < notas.length ; i++)
+            desvio[i] = Math.pow(notas[i] - promedioNotas, 2);
+        
+        // Se promedian los datos para hallar la desviación
+        promedioDesvio = hallarPromedio(desvio);
+
+        // Se devuelve la raiz cuadrática del resultado
+        return Math.sqrt(promedioDesvio);
     }
 
     public static double hallarPromedio (int [] numeros) {
@@ -152,6 +166,16 @@ public class Problema1 {
         int suma = 0;
 
         for (int numero : numeros)
+            suma += numero;
+
+        return suma/5.0;
+    }
+
+    public static double hallarPromedio (double [] numeros) {
+        
+        double suma = 0;
+
+        for (double numero : numeros)
             suma += numero;
 
         return suma/5.0;
