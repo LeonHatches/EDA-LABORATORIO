@@ -12,9 +12,14 @@ public class Problema2 {
 
     public static void main (String [] args) {
         
-        boolean prueba [] = {true, true, false, false, true, false};
-        mostrar(prueba);
+        int rango;
+        boolean numeros [];
 
+        System.out.println("| CRIBA DE ERATOSTENES |");
+        rango = ingresarRango();
+
+        numeros = new boolean [rango + 1];
+        System.out.println(rango);
     }
 
 
@@ -25,5 +30,23 @@ public class Problema2 {
             if (!numeros[i])
                 System.out.print (i+"_");
         }
+    }
+
+
+    public static int ingresarRango () {
+        
+        int rango;
+
+        // Un do-while para garantizar el rango correcta
+        do {
+            System.out.print ("Ingrese un rango límite (número): ");
+            rango = sc.nextInt();
+            
+            if (rango < 2)
+                System.out.println("ERROR: Ingrese un rango correcto.");
+        
+        } while (rango < 2);
+
+        return rango;
     }
 }
