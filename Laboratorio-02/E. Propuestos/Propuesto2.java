@@ -2,20 +2,22 @@ public class Propuesto2 {
     
     public int [] rotarIzquierdaArray (int [] A, int d) {
         
-        /* CASO BASE: Va constar de un arreglo de los
-         * elementos que no se rotan SI es que el
-         * tamaño del arreglo y el d son iguales
-        */
-
-        /* En otro caso, se va crea el Ainvertido según
-         * el tamaño de A que recibe, luego se asigna al
-         * indice 0 el elemento de posición "d", para
-         * después enviar un arreglo de 1 a length para
-         * iniciar la recursión.
-         * Al final solo se asignan los valores al
-         * arreglo a mostrar.
-         */
+        if (A.length == d)
+            return A;
+        
         int [] Ainvertido = new int [A.length];
+        int [] recursivo  = new int [A.length - 1];
+
+        Ainvertido[0] = A[d];
+
+        for (int i = 1 ; i < recursivo.length ; i++)
+            recursivo[i-1] = A[i];
+        
+        int [] rotado = rotarIzquierdaArray(recursivo, d);
+
+        for (int i = 1 ; i < Ainvertido.length ; i++)
+            Ainvertido[i] = rotado[i-1];
+        
         return Ainvertido;
     }
 
