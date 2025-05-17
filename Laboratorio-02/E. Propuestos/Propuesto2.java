@@ -10,8 +10,15 @@ public class Propuesto2 {
 
         Ainvertido[0] = A[d];
 
-        for (int i = 1 ; i < recursivo.length ; i++)
-            recursivo[i-1] = A[i];
+        int j = 0;
+        for (int i = 0 ; i < A.length ; i++) {
+            
+            if (i == d)
+                continue;
+            
+            recursivo[j] = A[i];
+            j++;
+        }
         
         int [] rotado = rotarIzquierdaArray(recursivo, d);
 
@@ -31,7 +38,7 @@ public class Propuesto2 {
         System.out.println();
 
         // ROTAR
-        int [] rotado = re.rotarIzquierdaArray(arreglo, 2);
+        int [] rotado = re.rotarIzquierdaArray(arreglo, 3);
 
         // MOSTRAR
         for (int i : rotado) {
