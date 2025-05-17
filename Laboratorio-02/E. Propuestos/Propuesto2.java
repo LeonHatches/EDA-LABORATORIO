@@ -2,14 +2,17 @@ public class Propuesto2 {
     
     public int [] rotarIzquierdaArray (int [] A, int d) {
         
+        // CASO BASE
         if (A.length == d)
             return A;
         
         int [] Ainvertido = new int [A.length];
         int [] recursivo  = new int [A.length - 1];
 
+        // Se coloca el elemento posición "d"
         Ainvertido[0] = A[d];
 
+        // Se copian los elementos menos "d"
         int j = 0;
         for (int i = 0 ; i < A.length ; i++) {
             
@@ -20,8 +23,10 @@ public class Propuesto2 {
             j++;
         }
         
+        // Invocación recursiva
         int [] rotado = rotarIzquierdaArray(recursivo, d);
 
+        // Se colocan los elementos rotados para mostrar
         for (int i = 1 ; i < Ainvertido.length ; i++)
             Ainvertido[i] = rotado[i-1];
         
