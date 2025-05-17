@@ -1,10 +1,16 @@
 public class Propuesto3 {
+    
     public void trianguloRecursivo1 (int base) {
         
-        /* Siempre y cuando base se > 0, se llama al triángulo
-         * recursivo y luego con un for se imprime "*" según
-         * cantidad de "base" 
-         */
+        if (base > 0) {
+            trianguloRecursivo1(base - 1);
+            
+            for (int i = 0 ; i < base ; i++)
+                System.out.print("*");
+
+            System.out.println();
+        }
+
     }
 
     public static void main (String [] args) {
