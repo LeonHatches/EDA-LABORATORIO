@@ -4,23 +4,33 @@ public class Propuesto1 {
         
         int Asalida [] = new int [A.length];
         
-        if (false) {
-            /* Se implementa una base que sea en dos casos, con un arreglo de tamaño 1 y 2.
-             * En dado caso sea 1, se devolverá el arreglo unitario.
-             * En dado caso sea 2, se devolverá el arreglo con elementos intercambiados.
-            */
-            return A;
+        if (A.length < 3) { 
+            
+            if (A.length == 1) {
+                return A;
+            }
+
+            Asalida[0] = A[A.length - 1];
+            Asalida[Asalida.length - 1] = A[0];
+            return Asalida;
         }
         
-        /* En esta parte, se harán varios procesos.
-         * Primero, se crea un arreglo de RECURSIÓN (Diferente al de Salida)
-         * Segundo, se colocan (el primero en el último y viceversa) en el arreglo de SALIDA.
-         * Tercero, se usa un for para preparar el arreglo de RECURSIÓN sin los anteriores datos (0, length - 1)
-         * Cuarto, se usa el arreglo RECIBIDO para añadirlo al arreglo de SALIDA
-         * Quinto, se envia.
-        */
+        int [] recursion = new int [A.length - 2];
 
-        return A;
+        Asalida[0] = A[A.length - 1];
+        Asalida[Asalida.length - 1] = A[0];
+
+        for (int i = 0 ; i < recursion.length ; i++) {
+            recursion[i] = A[i+1];
+        }
+
+        int [] invertido = invertirArray(recursion);
+
+        for (int i = 1 ; i < Asalida.length - 1 ; i++) {
+            Asalida[i] = invertido[i-1];
+        }
+        
+        return Asalida;
     }
 
     
