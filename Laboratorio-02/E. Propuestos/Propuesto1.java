@@ -1,28 +1,19 @@
 public class Propuesto1 {
     
-    public int [] invertirArray (int [] A) {
-        
-        int Asalida [] = new int [A.length];
-        
-        if (A.length < 3) { 
-            
-            if (A.length == 1) {
-                return A;
-            }
 
-            Asalida[0] = A[A.length - 1];
-            Asalida[Asalida.length - 1] = A[0];
-            return Asalida;
-        }
+    public int [] invertirArray (int [] A) {
+         
+        if (A.length < 2)
+            return A;
         
+        int [] Asalida   = new int [A.length];
         int [] recursion = new int [A.length - 2];
 
         Asalida[0] = A[A.length - 1];
         Asalida[Asalida.length - 1] = A[0];
 
-        for (int i = 0 ; i < recursion.length ; i++) {
+        for (int i = 0 ; i < recursion.length ; i++)
             recursion[i] = A[i+1];
-        }
 
         int [] invertido = invertirArray(recursion);
 
@@ -36,7 +27,7 @@ public class Propuesto1 {
     
     public static void main (String [] args) {
         
-        int [] arreglo = {11, 7, 5, 9, 12, 6, 10};
+        int [] arreglo = {11, 7, 5, 9, 12, 6};
         Propuesto1 re = new Propuesto1();
 
         // MOSTRAR
