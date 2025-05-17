@@ -1,5 +1,6 @@
-public class Propuesto1 {
-    
+import java.util.Scanner;
+
+public class Propuesto1 {   
 
     public int [] invertirArray (int [] A) {
          
@@ -17,18 +18,25 @@ public class Propuesto1 {
 
         int [] invertido = invertirArray(recursion);
 
-        for (int i = 1 ; i < Asalida.length - 1 ; i++) {
+        for (int i = 1 ; i < Asalida.length - 1 ; i++)
             Asalida[i] = invertido[i-1];
-        }
         
         return Asalida;
     }
 
-    
     public static void main (String [] args) {
         
-        int [] arreglo = {11, 7, 5, 9, 12, 6};
+        Scanner sc = new Scanner(System.in);
         Propuesto1 re = new Propuesto1();
+
+        System.out.print("Ingrese tamaño del arreglo (mayor a 0): ");
+        int [] arreglo = new int [sc.nextInt()];
+
+        // INGRESAR
+        for (int i = 0 ; i < arreglo.length ; i++) {
+            System.out.print ("Ingrese número: ");
+            arreglo[i] = sc.nextInt();
+        }
 
         // MOSTRAR
         for (int i : arreglo)
@@ -42,5 +50,7 @@ public class Propuesto1 {
         for (int i : arregloInv) {
             System.out.print (i+" ");
         }
+
+        sc.close();
     }
 }
