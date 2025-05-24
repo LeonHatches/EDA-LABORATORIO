@@ -13,6 +13,7 @@ public class Main {
 
             switch (opcion) {
                 case 1:
+                    mostrar("suma", suma(op.getValor1(), op.getValor2()));
                     break;
                 
                 case 2:
@@ -34,6 +35,7 @@ public class Main {
                     break;
 
                 case 8:
+                    System.out.println("Calculadora Apagada.");
                     break;
 
                 default:
@@ -42,7 +44,11 @@ public class Main {
             }
 
         } while (opcion != 8);
+        
+        sc.close();
     }
+
+    // INGRESO DE DATOS
 
     public static Operador <? extends Number> ingresar() {
         int opcion;
@@ -76,5 +82,21 @@ public class Main {
         double valor2 = sc.nextDouble();
 
         return new Operador<Double>(valor1, valor2);
+    }
+
+    // MOSTRAR DATOS
+
+    public static void mostrar (String operacion, Number resultado) {
+        if (resultado.doubleValue() == resultado.intValue())
+            System.out.printf("El resultado de la %s es: %d%n", operacion, resultado.intValue());
+        else
+            System.out.printf("El resultado de la %s es: %.3f%n", operacion, resultado.doubleValue());
+    }
+
+
+    // OPERACIONES MATEMATICAS GENERICAS
+
+    static <T extends Number> double suma(T valor1, T valor2) {
+        return (valor1.doubleValue() + valor2.doubleValue());
     }
 }
