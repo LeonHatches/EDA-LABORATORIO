@@ -30,7 +30,21 @@ public class List <T> {
             aux.setNext(nuevo);
         }
 
-        count++;
+        ++this.count;
+    }
+
+    public void add (int index, T element) {
+        Node <T> nuevo = new Node <>(element);
+
+        if (index == 0) {
+            nuevo.setNext(root);
+            this.root = nuevo;
+        
+        } else {
+
+        }
+
+        ++this.count;
     }
 
     public T get (int index) {
