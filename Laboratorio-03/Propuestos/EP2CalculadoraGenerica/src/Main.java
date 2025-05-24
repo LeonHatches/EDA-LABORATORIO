@@ -22,6 +22,7 @@ public class Main {
                     break;            
                 
                 case 3:
+                    mostrar("multiplicacion", producto(op.getValor1(), op.getValor2()));
                     break;
 
                 case 4:
@@ -120,5 +121,9 @@ public class Main {
 
     static <T extends Number> double resta(T valor1, T valor2) {
         return (valor1.doubleValue() - valor2.doubleValue());
+    }
+
+    static <T extends Number> double producto(T valor1, T valor2) {
+        return (valor1.doubleValue() * valor2.doubleValue());
     }
 }
