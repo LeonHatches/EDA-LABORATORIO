@@ -7,9 +7,10 @@ public class Main {
         Operador<? extends Number> op;
         int opcion = 0;
         
-        System.out.println("\t\tCalculadora\n");
+        System.out.println("\n\t\t\tCalculadora");
         do {
-            op = ingresar();
+            op     = ingresar();
+            opcion = mostrarMenu();
 
             switch (opcion) {
                 case 1:
@@ -44,7 +45,7 @@ public class Main {
             }
 
         } while (opcion != 8);
-        
+
         sc.close();
     }
 
@@ -54,7 +55,7 @@ public class Main {
         int opcion;
 
         do {
-            System.out.print ("Ingrese el tipo de dato | 1-Enteros | 2-Reales | : ");
+            System.out.print ("\nIngrese el tipo de dato | 1-Enteros | 2-Reales | : ");
             opcion = sc.nextInt();
         } while (opcion < 1 || opcion > 2);
 
@@ -88,9 +89,25 @@ public class Main {
 
     public static void mostrar (String operacion, Number resultado) {
         if (resultado.doubleValue() == resultado.intValue())
-            System.out.printf("El resultado de la %s es: %d%n", operacion, resultado.intValue());
+            System.out.printf("\nEl resultado de la %s es: %d%n", operacion, resultado.intValue());
         else
-            System.out.printf("El resultado de la %s es: %.3f%n", operacion, resultado.doubleValue());
+            System.out.printf("\nEl resultado de la %s es: %.4f%n", operacion, resultado.doubleValue());
+    }
+
+    public static int mostrarMenu () {
+        System.out.println(
+                "\n\t\tMenu de Operaciones\n"
+            +"1. Suma\n"
+            +"2. Resta\n"
+            +"3. Multiplicación\n"
+            +"4. División\n"
+            +"5. Potencia\n"
+            +"6. Raiz Cuadrada\n"
+            +"7. Raiz Cubica\n"
+            +"8. Salir del Programa\n"
+        );
+        System.out.print("Ingrese una opcion: ");
+        return sc.nextInt();
     }
 
 
