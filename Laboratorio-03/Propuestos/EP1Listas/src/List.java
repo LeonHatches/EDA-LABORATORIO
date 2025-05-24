@@ -86,4 +86,22 @@ public class List <T> {
         --count;
         return remove.getData();
     }
+
+    public boolean remove (T o) {
+        Node <T> aux = this.root;
+        int index = 0;
+
+        while (aux != null && !aux.getData().equals(o)) {
+            aux = aux.getNext();
+            ++index;
+        }
+            
+        
+        if (aux != null) {
+            remove(index);
+            return true;
+        }
+
+        return false;
+    }
 }

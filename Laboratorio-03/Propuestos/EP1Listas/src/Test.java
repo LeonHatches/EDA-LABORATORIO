@@ -34,5 +34,11 @@ public class Test {
         // remove
         lista.remove(0);
         System.out.println(lista.get(0));
+
+        // remove (T o)
+        lista.add(1, 9);
+        System.out.println(lista.get(1));
+        lista.remove(Integer.valueOf(9));
+        System.out.println(lista.get(1));
     }
 }
