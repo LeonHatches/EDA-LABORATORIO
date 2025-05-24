@@ -53,6 +53,11 @@ public class List <T> {
         ++this.count;
     }
 
+    public void addAll (List <T> c) {
+        for (int i = 0 ; i < c.size() ; i++)
+            this.add(c.get(i));
+    }
+
     public T get (int index) {
         Node <T> aux = this.root;
 
@@ -151,7 +156,7 @@ public class List <T> {
     public T set (int index, T element) {
         T set = remove(index);
         add(index, element);
-        
+
         return set;
     }
 }

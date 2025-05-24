@@ -60,5 +60,11 @@ public class Test {
         lista.add(11); lista.add(12); lista.add(13);
         lista.set(1, 14);
         System.out.println("Set: "+lista.get(1));
+
+        // addAll
+        otra.clear();
+        otra.add(15); otra.add(16);
+        lista.addAll(otra);
+        System.out.println("addAll: "+lista.get(3)+" _ "+lista.get(4));
     }
 }
