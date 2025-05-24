@@ -13,5 +13,11 @@ public class Test {
 
         // get
         System.out.println(lista.get(0)+" _ "+lista.get(1));
+
+        // isEmpty
+        System.out.println(lista.isEmpty());
+
+        // Size
+        System.out.println(lista.size());
     }
 }
