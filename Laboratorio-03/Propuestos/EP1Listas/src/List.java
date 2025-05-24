@@ -32,4 +32,13 @@ public class List <T> {
 
         count++;
     }
+
+    public T get (int index) {
+        Node <T> aux = this.root;
+
+        for (int i = 0 ; i < index ; i++)
+            aux = aux.getNext();
+        
+        return aux.getData();
+    }
 }
