@@ -66,4 +66,24 @@ public class List <T> {
         this.root = null;
         this.count = 0;
     }
+    
+    public T remove (int index) {
+        Node <T> remove = this.root;
+
+        if (index == 0) {
+            this.root = root.getNext();
+            --count;
+
+        } else {
+            Node <T> aux = this.root;
+
+            for (int i = 0 ; i < index-1 ; i++)
+                aux = aux.getNext();
+            
+            remove = aux.getNext();
+            aux.setNext(aux.getNext().getNext());
+        }
+
+        return remove.getData();
+    }
 }
