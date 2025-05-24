@@ -22,10 +22,11 @@ public class Main {
                     break;            
                 
                 case 3:
-                    mostrar("multiplicacion", producto(op.getValor1(), op.getValor2()));
+                    mostrar("multiplicación", producto(op.getValor1(), op.getValor2()));
                     break;
 
                 case 4:
+                    mostrar("división", division(op.getValor1(), op.getValor2()));
                     break;
 
                 case 5:
@@ -125,5 +126,15 @@ public class Main {
 
     static <T extends Number> double producto(T valor1, T valor2) {
         return (valor1.doubleValue() * valor2.doubleValue());
+    }
+
+    static <T extends Number> double division(T valor1, T valor2) {
+        
+        if (valor2.doubleValue() == 0) {
+            System.out.print("\n| ERROR | No se puede dividir entre 0 |");
+            return 0;
+        }
+
+        return (valor1.doubleValue() / valor2.doubleValue());
     }
 }
