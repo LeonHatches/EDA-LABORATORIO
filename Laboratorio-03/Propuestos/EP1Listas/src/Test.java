@@ -24,5 +24,11 @@ public class Test {
         lista.clear();
         System.out.println(lista.isEmpty());
         System.out.println(lista.size());
+
+        // add con index
+        lista.add(0); lista.add(2);
+        lista.add(1, 1);
+        lista.add(0, -1);
+        System.out.println(lista.get(0)+" _ "+lista.get(2));
     }
 }

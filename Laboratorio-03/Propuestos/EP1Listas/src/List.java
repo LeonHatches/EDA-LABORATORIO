@@ -41,7 +41,13 @@ public class List <T> {
             this.root = nuevo;
         
         } else {
+            Node <T> aux = this.root;
 
+            for (int i = 0 ; i < index-1 ; i++)
+                aux = aux.getNext();
+            
+            nuevo.setNext(aux.getNext());
+            aux.setNext(nuevo);
         }
 
         ++this.count;
