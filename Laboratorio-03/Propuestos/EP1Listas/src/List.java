@@ -104,4 +104,21 @@ public class List <T> {
 
         return false;
     }
+
+    public int indexOf (T o) {
+        Node <T> aux = this.root;
+        int index = 0;
+
+        while (aux != null && !aux.getData().equals(o)) {
+            aux = aux.getNext();
+            ++index;
+        }
+            
+        
+        if (aux != null) {
+            return index;
+        }
+
+        return -1;
+    }
 }

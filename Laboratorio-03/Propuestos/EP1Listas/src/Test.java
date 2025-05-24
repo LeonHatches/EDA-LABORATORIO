@@ -40,5 +40,9 @@ public class Test {
         System.out.println(lista.get(1));
         lista.remove(Integer.valueOf(9));
         System.out.println(lista.get(1));
+
+        // indexOf
+        lista.add(13);
+        System.out.println("IndexOf: "+lista.indexOf(13));
     }
 }
