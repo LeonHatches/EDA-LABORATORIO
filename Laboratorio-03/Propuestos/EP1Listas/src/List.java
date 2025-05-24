@@ -6,4 +6,8 @@ public class List <T> {
         this.root = null;
         this.count = 0;
     }
+
+    public int size () {
+        return count;
+    }
 }
