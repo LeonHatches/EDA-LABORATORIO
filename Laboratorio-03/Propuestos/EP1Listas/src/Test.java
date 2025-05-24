@@ -73,5 +73,13 @@ public class Test {
 
         // ContainsAll
         System.out.println("ContainsAll: "+lista.containsAll(otra));
+
+        // subList
+        List <Integer> sub = lista.subList(0, 3);
+        System.out.println("SubList: "+sub.get(0)+" _ "+sub.get(1)+"_"+sub.get(2));
+
+        // equals
+        sub.remove(Integer.valueOf(11));
+        System.out.println("Equals: "+otra.equals(sub));
     }
 }

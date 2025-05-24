@@ -174,4 +174,33 @@ public class List <T> {
 
         return set;
     }
+
+    public List <T> subList (int fromIndex, int toIndex) {
+        List <T> sub = new List<>();
+
+        for (int i = fromIndex ; i < toIndex ; i++)
+            sub.add(this.get(i));
+        
+        return sub;
+    }
+
+    public boolean equals (Object o) {
+        if (this == o)
+            return true;
+        
+        if (o == null || this.getClass() != o.getClass())
+            return false;
+
+        List<T> obj = (List<T>) o;
+
+        if (this.size() != obj.size())
+            return false;
+        
+        for (int i = 0 ; i < this.size() ; i++) {
+            if ( !this.get(i).equals(obj.get(i)) )
+                return false;
+        }
+
+        return true;
+    }
 }
