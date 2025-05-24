@@ -72,7 +72,6 @@ public class List <T> {
 
         if (index == 0) {
             this.root = root.getNext();
-            --count;
 
         } else {
             Node <T> aux = this.root;
@@ -83,7 +82,8 @@ public class List <T> {
             remove = aux.getNext();
             aux.setNext(aux.getNext().getNext());
         }
-
+        
+        --count;
         return remove.getData();
     }
 }
