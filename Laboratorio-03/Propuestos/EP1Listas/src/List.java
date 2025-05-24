@@ -114,6 +114,20 @@ public class List <T> {
         return -1;
     }
 
+    public int lastIndexOf (T o) {
+        Node <T> aux = this.root;
+        int last = -1;
+
+        for (int i = 0 ; aux != null ; i++) {
+            if (aux.getData().equals(o))
+                last = i;
+                
+            aux = aux.getNext();
+        }
+
+        return last;
+    }
+
     public boolean contains (T o) {
         if (indexOf(o) != -1)
             return true;
