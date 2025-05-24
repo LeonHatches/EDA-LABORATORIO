@@ -14,4 +14,16 @@ public class List <T> {
     public boolean isEmpty () {
         return count == 0;
     }
+
+    public void add (T e) {
+        Node<T> nuevo = new Node <>(e);
+
+        if (isEmpty()) {
+            this.root = nuevo;
+            count++;
+        
+        } else {
+
+        }
+    }
 }
