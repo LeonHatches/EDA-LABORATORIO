@@ -10,4 +10,8 @@ public class List <T> {
     public int size () {
         return count;
     }
+
+    public boolean isEmpty () {
+        return count == 0;
+    }
 }
