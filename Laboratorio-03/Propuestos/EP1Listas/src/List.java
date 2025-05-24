@@ -20,10 +20,16 @@ public class List <T> {
 
         if (isEmpty()) {
             this.root = nuevo;
-            count++;
         
         } else {
+            Node <T> aux = this.root;
 
+            while (aux.getNext() != null)
+                aux = aux.getNext();
+            
+            aux.setNext(nuevo);
         }
+
+        count++;
     }
 }
