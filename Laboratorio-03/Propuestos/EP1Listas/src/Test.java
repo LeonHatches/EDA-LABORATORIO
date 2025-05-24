@@ -66,5 +66,9 @@ public class Test {
         otra.add(15); otra.add(16);
         lista.addAll(otra);
         System.out.println("addAll: "+lista.get(3)+" _ "+lista.get(4));
+
+        // addAll con Index
+        lista.addAll(0, otra);
+        System.out.println("addAll con Index: "+lista.get(0)+" _ "+lista.get(1));
     }
 }

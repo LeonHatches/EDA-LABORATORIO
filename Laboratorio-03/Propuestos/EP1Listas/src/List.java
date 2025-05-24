@@ -58,6 +58,11 @@ public class List <T> {
             this.add(c.get(i));
     }
 
+    public void addAll (int index, List <T> c) {
+        for (int i = 0 ; i < c.size() ; i++)
+            this.add(index + i, c.get(i));
+    }
+
     public T get (int index) {
         Node <T> aux = this.root;
 
