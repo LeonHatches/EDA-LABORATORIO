@@ -38,6 +38,7 @@ public class Main {
                     break;
 
                 case 7:
+                    mostrar("raíz cúbica", raizCub(op.getValor1()));
                     break;
 
                 case 8:
@@ -134,7 +135,7 @@ public class Main {
         
         if (valor2.doubleValue() == 0) {
             System.out.print("\n| ERROR | No se puede dividir entre 0 |");
-            return 0;
+            return Double.NaN;
         }
 
         return (valor1.doubleValue() / valor2.doubleValue());
@@ -146,5 +147,9 @@ public class Main {
     
     static <T extends Number> double raizCua(T valor1) {
         return (Math.sqrt(valor1.doubleValue()));
+    }
+
+    static <T extends Number> double raizCub(T valor1) {
+        return (Math.cbrt(valor1.doubleValue()));
     }
 }
