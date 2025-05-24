@@ -4,7 +4,7 @@ public class Main {
     static Scanner sc = new Scanner(System.in);
     
     public static void main(String[] args) {
-        Operador op;
+        Operador<? extends Number> op;
         int opcion = 0;
         
         System.out.println("\t\tCalculadora\n");
@@ -45,16 +45,36 @@ public class Main {
     }
 
     public static Operador <? extends Number> ingresar() {
-        System.out.print ("Ingrese el tipo de dato | 1-Enteros | 2-Reales | : ");
-        
-        return new Operador<Integer>(0, 0);
+        int opcion;
+
+        do {
+            System.out.print ("Ingrese el tipo de dato | 1-Enteros | 2-Reales | : ");
+            opcion = sc.nextInt();
+        } while (opcion < 1 || opcion > 2);
+
+        if (opcion == 1)
+            return ingresarEnteros();
+        else
+            return ingresarReales();
     }
 
     public static Operador<Integer> ingresarEnteros () {
-        return new Operador<Integer>(0, 0);
+        System.out.print ("Ingrese 1er valor: ");
+        int valor1 = sc.nextInt();
+
+        System.out.print ("Ingrese 2do valor: ");
+        int valor2 = sc.nextInt();
+
+        return new Operador<Integer>(valor1, valor2);
     }
 
     public static Operador<Double> ingresarReales () {
-        return new Operador<Double>(0.0, 0.0);
+        System.out.print ("Ingrese 1er valor: ");
+        double valor1 = sc.nextDouble();
+
+        System.out.print ("Ingrese 2do valor: ");
+        double valor2 = sc.nextDouble();
+
+        return new Operador<Double>(valor1, valor2);
     }
 }
