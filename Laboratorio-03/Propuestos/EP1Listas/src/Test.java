@@ -54,5 +54,11 @@ public class Test {
         lista.add(9);
         lista.removeAll(otra);
         System.out.println("RemoveAll: "+lista.contains(13)+" _ "+lista.contains(9));
+
+        // set
+        lista.clear();
+        lista.add(11); lista.add(12); lista.add(13);
+        lista.set(1, 14);
+        System.out.println("Set: "+lista.get(1));
     }
 }

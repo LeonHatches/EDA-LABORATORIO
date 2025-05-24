@@ -147,4 +147,11 @@ public class List <T> {
         
         return false;
     }
+
+    public T set (int index, T element) {
+        T set = remove(index);
+        add(index, element);
+        
+        return set;
+    }
 }
