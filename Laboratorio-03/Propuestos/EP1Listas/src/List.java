@@ -113,4 +113,11 @@ public class List <T> {
 
         return -1;
     }
+
+    public boolean contains (T o) {
+        if (indexOf(o) != -1)
+            return true;
+        
+        return false;
+    }
 }

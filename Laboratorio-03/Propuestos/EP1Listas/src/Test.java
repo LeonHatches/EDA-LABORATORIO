@@ -38,5 +38,8 @@ public class Test {
         // indexOf
         lista.add(13);
         System.out.println("IndexOf: "+lista.indexOf(13));
+
+        // contains
+        System.out.println("Contains: "+lista.contains(13));
     }
 }
