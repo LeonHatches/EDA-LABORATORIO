@@ -88,16 +88,9 @@ public class List <T> {
     }
 
     public boolean remove (T o) {
-        Node <T> aux = this.root;
-        int index = 0;
+        int index = indexOf(o);
 
-        while (aux != null && !aux.getData().equals(o)) {
-            aux = aux.getNext();
-            ++index;
-        }
-            
-        
-        if (aux != null) {
+        if (index != -1) {
             remove(index);
             return true;
         }
@@ -113,7 +106,6 @@ public class List <T> {
             aux = aux.getNext();
             ++index;
         }
-            
         
         if (aux != null) {
             return index;
