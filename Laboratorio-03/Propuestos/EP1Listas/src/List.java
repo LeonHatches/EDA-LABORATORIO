@@ -41,4 +41,9 @@ public class List <T> {
         
         return aux.getData();
     }
+
+    public void clear () {
+        this.root = null;
+        this.count = 0;
+    }
 }

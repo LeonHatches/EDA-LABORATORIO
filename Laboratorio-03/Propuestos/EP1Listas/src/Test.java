@@ -19,5 +19,10 @@ public class Test {
 
         // Size
         System.out.println(lista.size());
+
+        // clear
+        lista.clear();
+        System.out.println(lista.isEmpty());
+        System.out.println(lista.size());
     }
 }
