@@ -34,6 +34,7 @@ public class Main {
                     break;
 
                 case 6:
+                    mostrar("raíz cuadrada", raizCua(op.getValor1()));
                     break;
 
                 case 7:
@@ -106,8 +107,8 @@ public class Main {
             +"3. Multiplicación\n"
             +"4. División\n"
             +"5. Potencia (1er ^ 2do)\n"
-            +"6. Raiz Cuadrada (raiz del 1er valor)\n"
-            +"7. Raiz Cubica (raiz del 1er valor)\n"
+            +"6. Raíz Cuadrada (raiz del 1er valor)\n"
+            +"7. Raíz Cúbica (raiz del 1er valor)\n"
             +"8. Salir del Programa\n"
         );
         System.out.print("Ingrese una opcion: ");
@@ -141,5 +142,9 @@ public class Main {
 
     static <T extends Number> double potencia(T valor1, T valor2) {
         return (Math.pow(valor1.doubleValue(), valor2.doubleValue()));
+    }
+    
+    static <T extends Number> double raizCua(T valor1) {
+        return (Math.sqrt(valor1.doubleValue()));
     }
 }
