@@ -1,3 +1,9 @@
-public class List <E> {
-    
+public class List <T> {
+    private Node <T> root;
+    private int count;
+
+    public List () {
+        this.root = null;
+        this.count = 0;
+    }
 }
