@@ -98,6 +98,19 @@ public class List <T> {
         return false;
     }
 
+    public boolean removeAll (List <T> c) {
+        boolean remove = false;
+
+        for (int i = 0 ; i < c.size() ; i++) {
+            T cData = c.get(i);
+            
+            while(remove(cData))
+                remove = true;
+        }
+        
+        return remove;
+    }
+
     public int indexOf (T o) {
         Node <T> aux = this.root;
         int index = 0;
@@ -121,7 +134,7 @@ public class List <T> {
         for (int i = 0 ; aux != null ; i++) {
             if (aux.getData().equals(o))
                 last = i;
-                
+
             aux = aux.getNext();
         }
 

@@ -1,6 +1,7 @@
 public class Test {
     public static void main(String[] args) {
         List<Integer> lista = new List<>();
+        List<Integer> otra = new List<>();
 
         // add
         lista.add(0); lista.add(1);
@@ -46,5 +47,12 @@ public class Test {
 
         // contains
         System.out.println("Contains: "+lista.contains(13));
+
+        // removeAll
+        otra.add(13);
+        otra.add(9);
+        lista.add(9);
+        lista.removeAll(otra);
+        System.out.println("RemoveAll: "+lista.contains(13)+" _ "+lista.contains(9));
     }
 }
