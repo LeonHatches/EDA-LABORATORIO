@@ -70,5 +70,8 @@ public class Test {
         // addAll con Index
         lista.addAll(0, otra);
         System.out.println("addAll con Index: "+lista.get(0)+" _ "+lista.get(1));
+
+        // ContainsAll
+        System.out.println("ContainsAll: "+lista.containsAll(otra));
     }
 }

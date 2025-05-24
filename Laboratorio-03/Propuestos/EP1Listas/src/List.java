@@ -158,6 +158,16 @@ public class List <T> {
         return false;
     }
 
+    public boolean containsAll (List <T> c) {
+        
+        for (int i = 0 ; i < c.size() ; i++) {
+            if (!this.contains(c.get(i)))
+                return false;
+        }
+
+        return true;
+    }
+
     public T set (int index, T element) {
         T set = remove(index);
         add(index, element);
