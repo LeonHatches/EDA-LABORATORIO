@@ -1,7 +1,5 @@
 package EJ1;
 
-import java.io.*;
-
 // Un programa java para implementar una simple lista enlazada
 public class LinkedList {
     Node head; // cabecera de la lista

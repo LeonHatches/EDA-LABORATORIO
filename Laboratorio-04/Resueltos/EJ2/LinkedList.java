@@ -1,7 +1,5 @@
 package EJ2;
 
-import java.io.*;  
-
 // Un programa java para implementar  
 // Una simple lista enlazada  
 public class LinkedList {  
