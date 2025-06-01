@@ -1,5 +1,10 @@
+package EP1;
 public class DoublyLinkedList <E> implements Link<E> {
-    public int size () {return 0;}
+    
+    private Node<E> first;
+    private Node<E> last;
+
+    public int size() {return 0;}
     public void insert(E data) {}
     public void printList() {}
     public void deleteByKey(E key) {}

@@ -1,4 +1,5 @@
-public class Node <E> {
+package EP1;
+public class Node<E> {
     private E data;
     private Node<E> prev;
     private Node<E> next;

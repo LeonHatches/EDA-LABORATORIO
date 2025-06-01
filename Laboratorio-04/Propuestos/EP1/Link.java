@@ -1,3 +1,4 @@
+package EP1;
 interface Link <E> {
     int size();
     void insert(E data);
