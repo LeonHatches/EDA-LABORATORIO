@@ -52,11 +52,11 @@ public class DoublyLinkedList <E> implements Link<E> {
         Node<E> node = new Node<>(data); 
 
         if (size == 0) {
-            first = node;
-            last  = node;
+            first = last = node;
         
         } else {
-            node.setNext(first.getNext());
+            node.setNext(first);
+            first.setPrev(node);
             first = node;
         }
     }
@@ -65,11 +65,12 @@ public class DoublyLinkedList <E> implements Link<E> {
         Node<E> node = new Node<>(data); 
 
         if (size == 0) {
-            first = node;
-            last  = node;
+            first = last = node;
         
         } else {
+            node.setPrev(last);
             last.setNext(node);
+            last = node;
         }
     }
 }
