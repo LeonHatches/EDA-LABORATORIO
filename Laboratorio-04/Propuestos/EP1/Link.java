@@ -4,9 +4,9 @@ interface Link <E> {
     void insert(int index, E data);
     void printList();
     void deleteByKey(E key);
-    void deleteAtPosition(int position);
+    void deleteAtPosition(int index);
     void removeFirst();
-    void removelast();
+    void removeLast();
     void addFirst(E data);
     void addLast(E data);
 }
