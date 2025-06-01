@@ -11,18 +11,27 @@ public class DoublyLinkedList <E> implements Link<E> {
         size = 0;
     }
 
-    public int size() {
+    public int size () {
         return size;
     }
 
     public void insert (int index, E data) {
 
     }
-    public void printList() {}
-    public void deleteByKey(E key) {}
-    public void deleteAtPosition(int position) {}
-    public void removeFirst() {}
-    public void removelast() {}
+
+    public void printList () {}
+    public void deleteByKey (E key) {}
+    public void deleteAtPosition (int position) {}
+    
+    public void removeFirst () {
+        if (size != 0)
+            first = first.getNext();
+    }
+
+    public void removelast () {
+        if (size != 0)
+            last = last.getPrev();
+    }
     
     public void addFirst (E data) {
         Node<E> node = new Node<>(data); 
@@ -39,7 +48,7 @@ public class DoublyLinkedList <E> implements Link<E> {
 
     public void addLast (E data) {
         Node<E> node = new Node<>(data); 
-        
+
         if (size == 0) {
             first = node;
             last  = node;
