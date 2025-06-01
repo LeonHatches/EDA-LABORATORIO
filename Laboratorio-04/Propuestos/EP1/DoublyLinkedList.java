@@ -92,30 +92,28 @@ public class DoublyLinkedList <E> implements Link<E> {
             else if (index == size - 1)
                 removeLast();
             
-            else if (size - index < index) {
-                Node<E> aux = last;
+            else {
+                Node<E> aux;
 
-                for (int i = size - 1 ; i > index ; i--) {
-                    aux = aux.getPrev();
+                if (size - index < index) {
+                    aux = last;
+
+                    for (int i = size - 1 ; i > index ; i--) {
+                        aux = aux.getPrev();
+                    }
+
+                } else {
+                    aux = first;
+
+                    for (int i = 0 ; i < index ; i++) {
+                        aux = aux.getNext();
+                    }
                 }
-
+                
                 aux.getPrev().setNext(aux.getNext());
                 aux.getNext().setPrev(aux.getPrev());
                 --size;
-
-            } else {
-                Node<E> aux = first;
-
-                for (int i = 0 ; i < index ; i++) {
-                    aux = aux.getNext();
-                }
-
-                aux.getPrev().setNext(aux.getNext());
-                aux.getNext().setPrev(aux.getPrev());
-                --size;
-
-            }
-            
+            }    
         }
     }
     
