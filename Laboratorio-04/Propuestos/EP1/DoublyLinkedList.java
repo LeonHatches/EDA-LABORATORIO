@@ -17,7 +17,19 @@ public class DoublyLinkedList <E> implements Link<E> {
 
     public void insert (int index, E data) {}
     public void printList () {}
-    public void deleteByKey (E key) {}
+    
+    public void deleteByKey (E key) {
+        Node<E> aux = first;
+        
+        while (aux != null && !aux.getData().equals(key))
+            aux = aux.getNext();
+
+        if (aux != null) {
+            aux.getPrev().setNext(aux.getNext());
+            aux.getNext().setPrev(aux.getPrev());
+            --size;
+        }
+    }
 
     public void deleteAtPosition (int index) {
         if (index >= 0 && index < size) {
