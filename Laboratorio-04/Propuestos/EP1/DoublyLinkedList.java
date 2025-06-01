@@ -25,9 +25,18 @@ public class DoublyLinkedList <E> implements Link<E> {
             aux = aux.getNext();
 
         if (aux != null) {
-            aux.getPrev().setNext(aux.getNext());
-            aux.getNext().setPrev(aux.getPrev());
-            --size;
+
+            if (aux == first)
+                removeFirst();
+
+            else if (aux == last)
+                removeLast();
+
+            else {
+                aux.getPrev().setNext(aux.getNext());
+                aux.getNext().setPrev(aux.getPrev());
+                --size;
+            }
         }
     }
 
