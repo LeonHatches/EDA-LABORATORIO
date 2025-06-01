@@ -11,13 +11,41 @@ public class DoublyLinkedList <E> implements Link<E> {
         size = 0;
     }
 
-    public int size() {return 0;}
-    public void insert(E data) {}
+    public int size() {
+        return size;
+    }
+
+    public void insert (int index, E data) {
+
+    }
     public void printList() {}
     public void deleteByKey(E key) {}
     public void deleteAtPosition(int position) {}
     public void removeFirst() {}
     public void removelast() {}
-    public void addFirst() {}
-    public void addLast() {}
+    
+    public void addFirst (E data) {
+        Node<E> node = new Node<>(data); 
+
+        if (size == 0) {
+            first = node;
+            last  = node;
+        
+        } else {
+            node.setNext(first.getNext());
+            first = node;
+        }
+    }
+
+    public void addLast (E data) {
+        Node<E> node = new Node<>(data); 
+        
+        if (size == 0) {
+            first = node;
+            last  = node;
+        
+        } else {
+            last.setNext(node);
+        }
+    }
 }
