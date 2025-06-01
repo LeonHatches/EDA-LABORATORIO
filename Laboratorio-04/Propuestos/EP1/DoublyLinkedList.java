@@ -109,7 +109,7 @@ public class DoublyLinkedList <E> implements Link<E> {
                         aux = aux.getNext();
                     }
                 }
-                
+
                 aux.getPrev().setNext(aux.getNext());
                 aux.getNext().setPrev(aux.getPrev());
                 --size;
@@ -156,6 +156,7 @@ public class DoublyLinkedList <E> implements Link<E> {
             first.setPrev(node);
             first = node;
         }
+        ++size;
     }
 
     public void addLast (E data) {
@@ -169,5 +170,6 @@ public class DoublyLinkedList <E> implements Link<E> {
             last.setNext(node);
             last = node;
         }
+        ++size;
     }
 }
