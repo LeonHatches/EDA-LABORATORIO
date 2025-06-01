@@ -3,6 +3,13 @@ public class DoublyLinkedList <E> implements Link<E> {
     
     private Node<E> first;
     private Node<E> last;
+    private int     size;
+
+    public DoublyLinkedList () {
+        first = null;
+        last  = null;
+        size = 0;
+    }
 
     public int size() {return 0;}
     public void insert(E data) {}
