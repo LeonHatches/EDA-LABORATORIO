@@ -80,7 +80,7 @@ public class Principal {
     public static void menu () {
         System.out.println(
             "\n\t\t| Menú del Programa |"
-            + "\n1. Apilar un número (Máx. 20) (Push)"
+            + "\n1. Apilar un número (Máx. 15) (Push)"
             + "\n2. Eliminar un tope (pop)"
             + "\n3. Ver el tope (top)"
             + "\n4. Eliminar toda la Pila (destroyStack)"
