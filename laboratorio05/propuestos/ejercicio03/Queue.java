@@ -52,14 +52,18 @@ public class Queue<E> implements Cola<E> {
 
     @Override
     public E front() throws ExceptionIsEmpty {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'front'");
+        if (isEmpty())
+            throw new ExceptionIsEmpty("La Cola está vacía...");
+        
+        return first.getData();
     }
 
     @Override
     public E back() throws ExceptionIsEmpty {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'back'");
+        if (isEmpty())
+            throw new ExceptionIsEmpty("La Cola está vacía...");
+        
+        return last.getData();
     }
 
     @Override
