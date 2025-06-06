@@ -42,9 +42,14 @@ public class Stack<E> implements Pila<E> {
     }
 
     @Override
-    public void destroystak() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'destroystak'");
+    public void destroystak() throws ExceptionIsEmpty {
+        if (isEmpty())
+            throw new ExceptionIsEmpty("La pila está vacía...");
+        
+        for (int i = 0 ; i < cantidad ; i++)
+            this.pop();
+        
+        cantidad = 0;
     }
 
     @Override
