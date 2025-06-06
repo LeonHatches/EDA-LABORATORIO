@@ -46,12 +46,12 @@ public class StackMenu {
 
                     case 5:
                         String empty = (stack.isEmpty()) ? "Si":"No";
-                        System.out.println(empty + "está vacía.");
+                        System.out.println(empty + " está vacía.");
                         break;
                     
                     case 6:
                         String full = (stack.isFull()) ? "Si":"No";
-                        System.out.println(full + "está llena.");
+                        System.out.println(full + " está llena.");
                         break;
 
                     case 7:
@@ -77,10 +77,11 @@ public class StackMenu {
 
     public static void menu () {
         System.out.println(
-            "\n\t\t\t| Menú del Programa |"
+            "\n\t\t| Menú del Programa |"
             + "\n1. Apilar un número (Máx. 20) (Push)"
             + "\n2. Eliminar un tope (pop)"
-            + "\n4. Ver el tope (top)"
+            + "\n3. Ver el tope (top)"
+            + "\n4. Eliminar toda la Pila (destroyStack)"
             + "\n5. Verificar si está vacía (isEmpty)"
             + "\n6. Verificar si está llena (isFull)"
             + "\n7. Ver toda la Pila (printStack)"
