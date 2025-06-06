@@ -1,7 +1,7 @@
 package laboratorio05.propuestos.estructuras;
 
 public interface Cola<E> {
-    void encolar();
+    void encolar(E element);
     E desencolar() throws ExceptionIsEmpty;
     void destroyQueue() throws ExceptionIsEmpty;
     boolean isEmpty();
