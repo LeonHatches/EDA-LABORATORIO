@@ -36,7 +36,7 @@ public class Queue<E> implements Cola<E> {
         E data = first.getData();
         first  = first.getNext();
         --cantidad;
-        
+
         if (first == null)
             last = null;
         
@@ -81,8 +81,15 @@ public class Queue<E> implements Cola<E> {
 
     @Override
     public void printQueue() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'printQueue'");
+        String str = "";
+        Node<E> aux = first;
+
+        for (int i = 0 ; i < cantidad ; i++) {
+            str += aux;
+            aux = aux.getNext();
+        }
+
+        System.out.println(str);
     }
     
 }
