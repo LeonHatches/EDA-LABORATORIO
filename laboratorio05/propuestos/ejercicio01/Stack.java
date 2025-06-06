@@ -8,14 +8,14 @@ public class Stack<E> implements Pila<E> {
     private int     cantidad;
 
     public Stack (int capacidad) {
-        tope           = new Node<E>(null);
+        tope           = null;
         this.capacidad = capacidad;
         this.cantidad  = 0;
     }
 
     @Override
     public void push (E item) {
-        if (cantidad <= capacidad) {
+        if (cantidad < capacidad) {
             Node<E> nuevo = new Node<E>(item, this.tope);
             tope = nuevo;
             ++cantidad;
@@ -65,14 +65,11 @@ public class Stack<E> implements Pila<E> {
     @Override
     public void printStack() throws ExceptionIsEmpty {
         String str = "";
-        Stack<E> copy = this;
+        Node<E> copy = tope;
 
-        if (copy.isEmpty())
-            throw new ExceptionIsEmpty("La pila está vacía...");
-
-        while (!copy.isEmpty()) {
-            str += copy.top() + " ";
-            copy.pop();
+        while (copy != null) {
+            str += copy.getData() + " ";
+            copy = copy.getNext();
         }
 
         System.out.println(str);
