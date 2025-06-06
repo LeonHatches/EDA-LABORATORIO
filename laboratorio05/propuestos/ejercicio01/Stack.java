@@ -39,14 +39,12 @@ public class Stack<E> implements Pila<E> {
 
     @Override
     public boolean isEmpty() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isEmpty'");
+        return cantidad == 0;
     }
 
     @Override
     public boolean isFull() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isFull'");
+        return cantidad == capacidad;
     }
 
     @Override
