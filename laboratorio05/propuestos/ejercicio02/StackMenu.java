@@ -11,7 +11,7 @@ public class StackMenu {
         int opcion;
 
         // Pila Definida
-        Stack<Integer> stack = new Stack<>(20);
+        Stack<Integer> stack = new Stack<>(15);
         for (int i = 10 ; i > 0 ; i--)
             stack.push(i);
 
@@ -26,10 +26,45 @@ public class StackMenu {
 
                 switch (opcion) {
                     case 1:
+                        System.out.print ("Ingrese número: ");
+                        stack.push(sc.nextInt());
                         break;
-                
+                    
+                    case 2:
+                        stack.pop();
+                        System.out.println("Tope Eliminado.");
+                        break;
+
+                    case 3:
+                        System.out.println("Tope: " + stack.top());
+                        break;
+                    
+                    case 4:
+                        stack.destroystak();
+                        System.out.println("Se limpió la Pila");
+                        break;
+
+                    case 5:
+                        String empty = (stack.isEmpty()) ? "Si":"No";
+                        System.out.println(empty + "está vacía.");
+                        break;
+                    
+                    case 6:
+                        String full = (stack.isFull()) ? "Si":"No";
+                        System.out.println(full + "está llena.");
+                        break;
+
+                    case 7:
+                        System.out.print ("La pila: ");
+                        stack.printStack();
+                        break;
+                    
+                    case 8:
+                        System.out.println("Saliendo del programa...");
+                        break;
+
                     default:
-                        System.out.println("Seleccione una opción válida...");;
+                        System.out.println("Seleccione una opción válida..."); break;
                 }
 
             } catch (ExceptionIsEmpty e) {
