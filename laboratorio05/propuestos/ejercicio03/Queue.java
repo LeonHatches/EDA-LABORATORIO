@@ -14,9 +14,18 @@ public class Queue<E> implements Cola<E> {
     }
 
     @Override
-    public void encolar (E element) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'encolar'");
+    public void encolar (E element) {    
+        if (!isFull()) {
+            Node<E> nuevo = new Node<E>(element);
+
+            if (isEmpty())
+                first = nuevo;
+            else
+                last.setNext(nuevo);
+            
+            last = nuevo;
+            ++cantidad;
+        }
     }
 
     @Override
