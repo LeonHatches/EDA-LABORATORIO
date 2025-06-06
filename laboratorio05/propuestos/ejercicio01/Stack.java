@@ -15,14 +15,19 @@ public class Stack<E> implements Pila<E> {
 
     @Override
     public void push(E item) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'push'");
+        if (cantidad <= capacidad) {
+            Node<E> nuevo = new Node<E>(item, this.tope);
+            tope = nuevo;
+            ++cantidad;
+        }
     }
 
     @Override
     public E pop() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'pop'");
+        Node<E> pop = tope;
+        tope = tope.getNext();
+
+        return pop.getData();
     }
 
     @Override
