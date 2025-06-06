@@ -4,7 +4,7 @@ import java.util.Scanner;
 import laboratorio05.propuestos.ejercicio01.*;
 import laboratorio05.propuestos.estructuras.ExceptionIsEmpty;
 
-public class StackMenu {
+public class Principal {
     static Scanner sc = new Scanner (System.in);
     
     public static void main (String [] args) {
