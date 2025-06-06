@@ -11,7 +11,7 @@ public class StackMenu {
         int opcion;
 
         // Pila Definida
-        Stack<Integer> stack = new Stack<>(10);
+        Stack<Integer> stack = new Stack<>(20);
         for (int i = 10 ; i > 0 ; i--)
             stack.push(i);
 
@@ -19,11 +19,11 @@ public class StackMenu {
             menu();
 
             // Escoger una opción
-            System.out.println("");
+            System.out.print ("Eliga una opción: ");
             opcion = sc.nextInt();
 
             try {
-                
+
                 switch (opcion) {
                     case 1:
                         break;
@@ -37,10 +37,19 @@ public class StackMenu {
 		    }
 
             
-        } while (opcion != 7);
+        } while (opcion != 8);
     }
 
     public static void menu () {
-
+        System.out.println(
+            "\n\t\t\t| Menú del Programa |"
+            + "\n1. Apilar un número (Máx. 20) (Push)"
+            + "\n2. Eliminar un tope (pop)"
+            + "\n4. Ver el tope (top)"
+            + "\n5. Verificar si está vacía (isEmpty)"
+            + "\n6. Verificar si está llena (isFull)"
+            + "\n7. Ver toda la Pila (printStack)"
+            + "\n8. Salir del Programa\n"
+        );
     }
 }
