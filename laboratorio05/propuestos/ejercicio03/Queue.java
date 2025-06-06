@@ -1,5 +1,6 @@
 package laboratorio05.propuestos.ejercicio03;
 import laboratorio05.propuestos.estructuras.*;
+
 public class Queue<E> implements Cola<E> {
     private Node<E> first;
     private Node<E> last;
@@ -85,7 +86,7 @@ public class Queue<E> implements Cola<E> {
         Node<E> aux = first;
 
         for (int i = 0 ; i < cantidad ; i++) {
-            str += aux;
+            str += aux + " ";
             aux = aux.getNext();
         }
 
