@@ -7,5 +7,5 @@ public interface Pila<E> {
     void destroystak() throws ExceptionIsEmpty;
     boolean isEmpty();
     boolean isFull();
-    void printStack();
+    void printStack() throws ExceptionIsEmpty;
 }
