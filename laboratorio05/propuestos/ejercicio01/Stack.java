@@ -34,9 +34,11 @@ public class Stack<E> implements Pila<E> {
     }
 
     @Override
-    public E top() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'top'");
+    public E top() throws ExceptionIsEmpty {
+        if (isEmpty())
+            throw new ExceptionIsEmpty("La pila está vacía...");
+        
+        return tope.getData();
     }
 
     @Override
