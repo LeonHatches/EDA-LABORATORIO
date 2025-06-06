@@ -14,7 +14,7 @@ public class Stack<E> implements Pila<E> {
     }
 
     @Override
-    public void push(E item) {
+    public void push (E item) {
         if (cantidad <= capacidad) {
             Node<E> nuevo = new Node<E>(item, this.tope);
             tope = nuevo;
@@ -23,10 +23,13 @@ public class Stack<E> implements Pila<E> {
     }
 
     @Override
-    public E pop() {
+    public E pop () throws ExceptionIsEmpty {
+        if (isEmpty())
+            throw new ExceptionIsEmpty("La pila está vacia...");
+        
         Node<E> pop = tope;
         tope = tope.getNext();
-
+        --cantidad;
         return pop.getData();
     }
 
