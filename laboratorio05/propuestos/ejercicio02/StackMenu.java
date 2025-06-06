@@ -8,7 +8,7 @@ public class StackMenu {
     static Scanner sc = new Scanner (System.in);
     
     public static void main (String [] args) {
-        int opcion;
+        int opcion = 0;
 
         // Pila Definida
         Stack<Integer> stack = new Stack<>(15);
@@ -18,11 +18,10 @@ public class StackMenu {
         do {
             menu();
 
-            // Escoger una opción
-            System.out.print ("Eliga una opción: ");
-            opcion = sc.nextInt();
-
             try {
+                // Escoger una opción
+                System.out.print ("Eliga una opción: ");
+                opcion = sc.nextInt();
 
                 switch (opcion) {
                     case 1:
@@ -69,7 +68,10 @@ public class StackMenu {
 
             } catch (ExceptionIsEmpty e) {
 			    System.out.println(e.getMessage());
-		    }
+		    } catch (Exception e) {
+                System.out.println("Ha ocurrido un error...");
+                sc.nextLine();
+            }
 
             
         } while (opcion != 8);
