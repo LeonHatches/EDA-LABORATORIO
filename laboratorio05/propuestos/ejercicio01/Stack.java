@@ -34,7 +34,7 @@ public class Stack<E> implements Pila<E> {
     }
 
     @Override
-    public E top() throws ExceptionIsEmpty {
+    public E top () throws ExceptionIsEmpty {
         if (isEmpty())
             throw new ExceptionIsEmpty("La pila está vacía...");
         
@@ -42,7 +42,7 @@ public class Stack<E> implements Pila<E> {
     }
 
     @Override
-    public void destroystak() throws ExceptionIsEmpty {
+    public void destroystak () throws ExceptionIsEmpty {
         if (isEmpty())
             throw new ExceptionIsEmpty("La pila está vacía...");
         
@@ -53,17 +53,17 @@ public class Stack<E> implements Pila<E> {
     }
 
     @Override
-    public boolean isEmpty() {
+    public boolean isEmpty () {
         return cantidad == 0;
     }
 
     @Override
-    public boolean isFull() {
+    public boolean isFull () {
         return cantidad == capacidad;
     }
 
     @Override
-    public void printStack() throws ExceptionIsEmpty {
+    public void printStack () {
         String str = "";
         Node<E> copy = tope;
 
