@@ -30,8 +30,17 @@ public class Queue<E> implements Cola<E> {
 
     @Override
     public E desencolar () throws ExceptionIsEmpty {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'desencolar'");
+        if (isEmpty())
+            throw new ExceptionIsEmpty("La Cola está vacía...");
+        
+        E data = first.getData();
+        first  = first.getNext();
+        --cantidad;
+        
+        if (first == null)
+            last = null;
+        
+        return data;
     }
 
     @Override
