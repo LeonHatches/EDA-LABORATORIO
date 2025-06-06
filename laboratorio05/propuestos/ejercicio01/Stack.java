@@ -63,9 +63,19 @@ public class Stack<E> implements Pila<E> {
     }
 
     @Override
-    public void printStack() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'printStack'");
+    public void printStack() throws ExceptionIsEmpty {
+        String str = "";
+        Stack<E> copy = this;
+
+        if (copy.isEmpty())
+            throw new ExceptionIsEmpty("La pila está vacía...");
+
+        while (!copy.isEmpty()) {
+            str += copy.top() + " ";
+            copy.pop();
+        }
+
+        System.out.println(str);
     }
     
 }
