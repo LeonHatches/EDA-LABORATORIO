@@ -7,10 +7,10 @@ public class Queue<E> implements Cola<E> {
     private int cantidad;
 
     public Queue (int capacidad) {
-        this.first = null;
-        this.last = null;
+        this.first     = null;
+        this.last      = null;
         this.capacidad = capacidad;
-        this.cantidad = 0;
+        this.cantidad  = 0;
     }
 
     @Override
@@ -36,8 +36,12 @@ public class Queue<E> implements Cola<E> {
 
     @Override
     public void destroyQueue() throws ExceptionIsEmpty {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'destroyQueue'");
+        if (isEmpty())
+            throw new ExceptionIsEmpty("La Cola está vacía...");
+        
+        this.first    = null;
+        this.last     = null;
+        this.cantidad = 0;
     }
 
     @Override
