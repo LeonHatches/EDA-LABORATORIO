@@ -12,7 +12,7 @@ public class StackMenu {
 
         // Pila Definida
         Stack<Integer> stack = new Stack<>(15);
-        for (int i = 10 ; i > 0 ; i--)
+        for (int i = 1 ; i < 11 ; i++)
             stack.push(i);
 
         do {
