@@ -33,14 +33,12 @@ public class Queue<E> implements Cola<E> {
 
     @Override
     public boolean isEmpty() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isEmpty'");
+        return cantidad == 0;
     }
 
     @Override
     public boolean isFull() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isFull'");
+        return cantidad == capacidad;
     }
 
     @Override
