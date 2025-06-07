@@ -64,6 +64,17 @@ public class Principal {
     }
 
     public static void menu () {
-        
+        System.out.println(
+            "\n\t\t| Menú del Programa |"
+            + "\n1. Encolar un número (Máx. 15) (encolar)"
+            + "\n2. Desencolar un número (desencolar)"
+            + "\n3. Eliminar toda la Cola (destroyQueue)"
+            + "\n4. Verificar si está vacía (isEmpty)"
+            + "\n5. Verificar si está llena (isFull)"
+            + "\n6. Ver el primer número (front)"
+            + "\n7. Ver el último número (back)"
+            + "\n8. Ver toda la Cola (printQueue)"
+            + "\n9. Salir del Programa\n"
+        );
     }
 }
