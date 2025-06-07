@@ -46,9 +46,7 @@ public class Stack<E> implements Pila<E> {
         if (isEmpty())
             throw new ExceptionIsEmpty("La pila está vacía...");
         
-        for (int i = 0 ; i < cantidad ; i++)
-            this.pop();
-        
+        tope = null;
         cantidad = 0;
     }
 
