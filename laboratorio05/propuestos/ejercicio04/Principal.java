@@ -11,9 +11,9 @@ public class Principal {
         int opcion = 0;
 
         // Cola Definida
-        Queue<Integer> stack = new Queue<>(15);
+        Queue<Integer> queue = new Queue<>(15);
         for (int i = 1 ; i < 11 ; i++)
-            stack.encolar(i);
+            queue.encolar(i);
 
         do {
             menu();
@@ -25,27 +25,44 @@ public class Principal {
 
                 switch (opcion) {
                     case 1:
+                        System.out.print ("Ingrese número: ");
+                        queue.encolar(sc.nextInt());
                         break;
                     
                     case 2:
+                        queue.desencolar();
+                        System.out.println("Desencolado.");
                         break;
 
                     case 3:
+                        queue.destroyQueue();
+                        System.out.println("Se vació.");
                         break;
                     
                     case 4:
+                        String empty = (queue.isEmpty()) ? "Si":"No";
+                        System.out.println(empty + " está vacía.");
                         break;
 
                     case 5:
+                        String full = (queue.isFull()) ? "Si":"No";
+                        System.out.println(full + " está llena.");
                         break;
                     
                     case 6:
+                        System.out.println("Primero: " + queue.front());
                         break;
 
                     case 7:
+                        System.out.println("Último: " + queue.back());
                         break;
                     
                     case 8:
+                        System.out.print ("La cola: ");
+                        queue.printQueue();
+                        break;
+                    
+                    case 9:
                         System.out.println("Saliendo del programa...");
                         break;
 
@@ -60,12 +77,12 @@ public class Principal {
                 sc.nextLine();
             }
 
-        } while (opcion != 8);
+        } while (opcion != 9);
     }
 
     public static void menu () {
         System.out.println(
-            "\n\t\t| Menú del Programa |"
+            "\n\t| Menú del Programa |"
             + "\n1. Encolar un número (Máx. 15) (encolar)"
             + "\n2. Desencolar un número (desencolar)"
             + "\n3. Eliminar toda la Cola (destroyQueue)"
