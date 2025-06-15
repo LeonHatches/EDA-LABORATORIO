@@ -8,19 +8,35 @@ public class BST <T extends Comparable<T>> implements Tree<T> {
     }
 
     @Override
-    public void destroy() {
+    public void destroy () {
         root = null;
     }
 
     @Override
-    public boolean isEmpty() {
+    public boolean isEmpty () {
         return root == null;
     }
 
     @Override
-    public void insert(T data) throws ItemDuplicated {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'insert'");
+    public void insert (T data) throws ItemDuplicated {
+        this.root = insert(data, root);
+    }
+
+    private Node<T> insert (T data, Node<T> actual) throws ItemDuplicated {
+        
+        Node<T> result = actual;
+        if (actual == null)
+            result = new Node<>(data);
+        
+        else {
+            int cmp = data.compareTo(actual.getData());
+
+            if (cmp == 0) throw new ItemDuplicated("Elemento '" + data + "' Duplicado.");
+            if (cmp  > 0) result.setRight( insert(data, actual.getRight()) );
+            else          result.setLeft ( insert(data, actual.getLeft ()) );
+        }
+
+        return result;
     }
 
     @Override
