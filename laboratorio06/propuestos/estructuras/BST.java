@@ -56,8 +56,15 @@ public class BST <T extends Comparable<T>> implements Tree<T> {
 
     @Override
     public T min() throws ExceptionIsEmpty {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'min'");
+        if (isEmpty())
+            throw new ExceptionIsEmpty("El BST está vacío.");
+        
+        return min(root).getData();
+    }
+
+    private Node<T> min(Node<T> actual) {
+        if (actual.getLeft() == null) return actual;
+        else                          return min(actual.getLeft());
     }
 
     @Override
