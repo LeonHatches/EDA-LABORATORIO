@@ -129,19 +129,23 @@ public class BST <T extends Comparable<T>> implements Tree<T> {
     }
 
     @Override
-    public void preOrden() {
+    public String preOrden() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'preOrden'");
     }
 
-    @Override
-    public void inOrden() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'inOrden'");
+    public String inOrden () {
+        return inOrden(this.root).trim();
+    }
+
+    public String inOrden (Node<T> actual) {
+        if (actual  == null)
+            return "";
+        return inOrden(actual.getLeft()) + actual.getData() + " " + inOrden(actual.getRight());
     }
 
     @Override
-    public void postOrden() {
+    public String postOrden() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'postOrden'");
     }
