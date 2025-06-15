@@ -9,14 +9,12 @@ public class BST <T extends Comparable<T>> implements Tree<T> {
 
     @Override
     public void destroy() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'destroy'");
+        root = null;
     }
 
     @Override
     public boolean isEmpty() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isEmpty'");
+        return root == null;
     }
 
     @Override
