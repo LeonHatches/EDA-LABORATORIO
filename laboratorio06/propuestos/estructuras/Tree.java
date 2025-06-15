@@ -10,8 +10,8 @@ public interface Tree <T extends Comparable<T>> {
     T max () throws ExceptionIsEmpty;
     T predecesor (T data) throws ItemNotFound;
     T sucesor (T data) throws ItemNotFound;
-    void preOrden ();
-    void inOrden ();
-    void postOrden ();
+    String preOrden ();
+    String inOrden ();
+    String postOrden ();
 }
 
