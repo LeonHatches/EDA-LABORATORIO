@@ -69,8 +69,15 @@ public class BST <T extends Comparable<T>> implements Tree<T> {
 
     @Override
     public T max() throws ExceptionIsEmpty {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'max'");
+        if (isEmpty())
+            throw new ExceptionIsEmpty("El BST está vacío.");
+        
+        return max(root).getData();
+    }
+
+    private Node<T> max (Node<T> actual) {
+        if (actual.getRight() == null) return actual;
+        else                           return max(actual.getRight());
     }
 
     @Override
