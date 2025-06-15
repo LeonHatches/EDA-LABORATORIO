@@ -40,6 +40,42 @@ public class BST <T extends Comparable<T>> implements Tree<T> {
     }
 
     @Override
+    public void remove (T data) throws ItemNotFound {
+        this.root = remove(data, root);
+    }
+
+    private Node<T> remove (T data, Node<T> actual) throws ItemNotFound {
+        Node<T> result = actual;
+
+        if (actual == null) throw new ItemNotFound("Elemento '" + data + "' No Encontrado.");
+        int cmp = data.compareTo(actual.getData());
+
+        if (cmp > 0) result.setRight( remove(data, actual.getRight()) );
+        else if (cmp < 0) result.setLeft( remove(data, actual.getLeft()) );
+        else {
+            if (actual.getLeft() != null && actual.getRight() != null) {
+                result.setRight( minRemove(actual.getRight(), result ));
+            
+            } else {
+                result = (actual.getLeft() != null) ? actual.getLeft() : actual.getRight();
+            }
+        }
+        return result;
+    }
+
+    private Node<T> minRemove (Node<T> actual, Node<T> rootRemove) {
+        
+        if (actual.getLeft() != null) {
+            actual.setLeft( minRemove(actual.getLeft(), rootRemove) );
+        
+        } else {
+            rootRemove.setData( actual.getData() );
+            actual = actual.getRight();
+        }
+        return actual;
+    }
+
+    @Override
     public T search (T data) throws ItemNotFound {
         return search(data, root).getData();
     }
