@@ -40,9 +40,18 @@ public class BST <T extends Comparable<T>> implements Tree<T> {
     }
 
     @Override
-    public T search(T data) throws ItemNotFound {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'search'");
+    public T search (T data) throws ItemNotFound {
+        return search(data, root).getData();
+    }
+
+    private Node<T> search (T data, Node<T> actual) throws ItemNotFound {
+        if (actual == null) throw new ItemNotFound("Elemento '" + data + "' No Encontrado.");
+        else {
+            int cmp = data.compareTo(actual.getData());
+            if (cmp > 0) return search(data, actual.getRight());
+            if (cmp < 0) return search(data, actual.getLeft());
+            return actual;
+        }
     }
 
     @Override
