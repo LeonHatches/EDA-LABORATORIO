@@ -7,6 +7,10 @@ public class BST <T extends Comparable<T>> implements Tree<T> {
         this.root = null;
     }
 
+    public Node<T> getRoot() {
+        return root;
+    }
+
     @Override
     public void destroy () {
         root = null;
