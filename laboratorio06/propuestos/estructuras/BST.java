@@ -118,8 +118,22 @@ public class BST <T extends Comparable<T>> implements Tree<T> {
 
     @Override
     public T predecesor(T data) throws ItemNotFound {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'predecesor'");
+        return predecesor(data, root, null).getData();
+    }
+
+    private Node<T> predecesor(T data, Node<T> actual, Node<T> potencial) throws ItemNotFound {
+        
+        if (actual == null && potencial == null)
+            throw new ItemNotFound("Elemento '" + data + "' No Tiene Predecesor.");
+
+        int cmp = data.compareTo(actual.getData());
+
+        if (cmp > 0) return predecesor(data, actual.getRight(), actual);
+        else if (cmp < 0) return predecesor(data, actual.getLeft(), potencial);
+        else {
+            if (actual.getLeft() != null) return max( actual.getLeft() );
+        }
+        return potencial;
     }
 
     @Override
