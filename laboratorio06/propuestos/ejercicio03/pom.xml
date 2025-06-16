@@ -8,15 +8,17 @@
     <artifactId>ejercicio03</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <dependency>
-        <groupId>org.graphstream</groupId>
-        <artifactId>gs-core</artifactId>
-        <version>2.0</version>
-    </dependency>
-
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.graphstream</groupId>
+            <artifactId>gs-core</artifactId>
+            <version>2.0</version>
+        </dependency>
+    </dependencies>
 
 </project>
