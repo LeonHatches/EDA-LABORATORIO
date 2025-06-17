@@ -12,28 +12,36 @@ public class BSTViewer<T extends Comparable<T>> extends BST<T>{
         super();
         graph = new SingleGraph("BST");
         System.setProperty("org.graphstream.ui", "swing");
+        graph.setAttribute("ui.stylesheet", 
+            "node { fill-color:rgb(239, 92, 92); text-size: 16px; size: 25px; }" +
+            "edge { fill-color: rgb(35, 35, 35); }"
+        );
     }
 
     public void graphTree () throws ExceptionIsEmpty {
         if (isEmpty())
             throw new ExceptionIsEmpty("Está vacío.");
             
-        graphTree(getRoot(), graph, null);
-        graph.display();
+        graphTree(getRoot(), graph, null, 0, 0, 2);
+        graph.display(false);
     }
 
-    private void graphTree (Node<T> actual, Graph graph, String fatherId) {
+    private void graphTree (Node<T> actual, Graph graph, String fatherId,
+                            double positionX, double positionY, double space) {
         
         if (actual != null) {
 
             String actualId = actual.getData().toString();
-            graph.addNode(actualId).setAttribute("ui.label", actualId);
+            org.graphstream.graph.Node node = graph.addNode(actualId);
             
+            node.setAttribute("ui.label", actualId);
+            node.setAttribute("xy", positionX, positionY);
+
             if (fatherId != null)
                 graph.addEdge(fatherId + "-" + actualId, fatherId, actualId);
 
-            graphTree(actual.getLeft(), graph, actualId);
-            graphTree(actual.getRight(), graph, actualId);
+            graphTree(actual.getLeft(), graph, actualId, positionX - space, positionY - 1, space/2);
+            graphTree(actual.getRight(), graph, actualId, positionX + space, positionY - 1, space/2);
         }
     }
 }
