@@ -85,7 +85,7 @@ public class AVLTree<E extends Comparable<E>> extends BST<E> {
                     
                     case 1:
                         node.bf = 1;
-                        node.bf = 0;
+                        hijo.bf = 0;
                         break;
                 }
                 nieto.bf = 0;
@@ -95,6 +95,42 @@ public class AVLTree<E extends Comparable<E>> extends BST<E> {
         }
         return node;
     }
+
+     private NodeAVL<E> balanceToRight (NodeAVL<E> node) {
+        NodeAVL<E> hijo = (NodeAVL<E>) node.getLeft();
+
+        switch (hijo.bf) {
+            case -1:
+                node.bf = 0;
+                hijo.bf = 0;
+                node = rotateSR(node);
+                break;
+        
+            case 1:
+                NodeAVL<E> nieto = (NodeAVL<E>) hijo.getRight();
+                switch (nieto.bf) {
+                    case -1:
+                        node.bf = 0;
+                        hijo.bf = -1;  
+                        break;
+                
+                    case 0:
+                        node.bf = 0;
+                        hijo.bf = 0;
+                        break;
+                    
+                    case 1:
+                        node.bf = 1;
+                        hijo.bf = 0;
+                        break;
+                }
+                nieto.bf = 0;
+                node.setLeft(rotateSL(hijo));
+                node = rotateSR(node);
+                break;
+        }
+        return node;
+     }
 
     private NodeAVL<E> rotateSL(NodeAVL<E> node) {
         NodeAVL<E> p = (NodeAVL<E>) node.getRight();
