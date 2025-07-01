@@ -89,7 +89,7 @@ public class AVLTree<E extends Comparable<E>> extends BST<E> {
                         break;
                 }
                 nieto.bf = 0;
-                //node.setRight(rotateSR(hijo));
+                node.setRight(rotateSR(hijo));
                 node = rotateSL(node);
                 break;
         }
@@ -100,6 +100,14 @@ public class AVLTree<E extends Comparable<E>> extends BST<E> {
         NodeAVL<E> p = (NodeAVL<E>) node.getRight();
         node.setRight(p.getLeft());
         p.setLeft(node);
+        node = p;
+        return node;
+    }
+
+    private NodeAVL<E> rotateSR (NodeAVL<E> node) {
+        NodeAVL<E> p = (NodeAVL<E>) node.getLeft();
+        node.setLeft(p.getRight());
+        p.setRight(node);
         node = p;
         return node;
     }
