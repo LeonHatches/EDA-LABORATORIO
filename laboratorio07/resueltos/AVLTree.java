@@ -1,5 +1,4 @@
-package laboratorio07.resueltos;
-
+package resueltos;
 public class AVLTree<E extends Comparable<E>> extends BST<E> {
 
     class NodeAVL<T> extends Node<T> {
@@ -45,7 +44,7 @@ public class AVLTree<E extends Comparable<E>> extends BST<E> {
                     
                         case 0:
                             fat.bf = 1;
-                            break;
+                           break;
                         
                         case 1:
                             fat = balanceToLeft(fat);

@@ -1,4 +1,4 @@
-package laboratorio07.resueltos;
+package resueltos;
 
 public class ExceptionIsEmpty extends Exception {
 	public ExceptionIsEmpty() {

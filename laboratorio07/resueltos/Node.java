@@ -1,4 +1,4 @@
-package laboratorio07.resueltos;
+package resueltos;
 
 public class Node<T> {
     private Node<T> left, right;

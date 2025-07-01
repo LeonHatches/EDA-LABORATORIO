@@ -1,4 +1,4 @@
-package laboratorio07.resueltos;
+package resueltos;
 
 public class BST <T extends Comparable<T>> implements Tree<T> {
     private Node<T> root;
