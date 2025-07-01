@@ -39,4 +39,7 @@ public class NodeAVL<T> {
     public void setBf(int bf) {
         this.bf = bf;
     }
+    public String toString () {
+        return data.toString();
+    }
 }
