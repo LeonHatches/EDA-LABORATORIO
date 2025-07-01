@@ -1,7 +1,7 @@
 package propuestos.estructuras;
 
 public class BST <T extends Comparable<T>> implements Tree<T> {
-    private Node<T> root;
+    protected Node<T> root;
 
     public BST () {
         this.root = null;
