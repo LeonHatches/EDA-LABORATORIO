@@ -54,7 +54,24 @@ public class AVLTree<E extends Comparable<E>> extends BST<E> {
                     }
                 }
             } else {
-                //
+                fat.setLeft( insert(x,(NodeAVL<E>) node.getLeft()));
+                if (this.height) {
+                    switch (fat.bf) {
+                        case -1:
+                            fat = balanceToRight(fat);
+                            this.height = false;
+                            break;
+                    
+                        case 0:
+                            fat.bf = -1;
+                            break;
+                        
+                        case 1:
+                            fat.bf = 0;
+                            this.height = false;
+                            break;
+                    }
+                }
             }
         }
         return fat;
