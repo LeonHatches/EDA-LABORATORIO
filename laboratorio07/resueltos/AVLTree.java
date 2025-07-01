@@ -48,7 +48,7 @@ public class AVLTree<E extends Comparable<E>> extends BST<E> {
                             break;
                         
                         case 1:
-                            //fat = balanceToLeft(fat);
+                            fat = balanceToLeft(fat);
                             this.height = false;
                             break;
                     }
@@ -67,7 +67,7 @@ public class AVLTree<E extends Comparable<E>> extends BST<E> {
             case 1:
                 node.bf = 0;
                 hijo.bf = 0;
-                //node = rotateSL(node);
+                node = rotateSL(node);
                 break;
         
             case -1:
@@ -90,9 +90,17 @@ public class AVLTree<E extends Comparable<E>> extends BST<E> {
                 }
                 nieto.bf = 0;
                 //node.setRight(rotateSR(hijo));
-                //node = rotateSL(node);
+                node = rotateSL(node);
                 break;
         }
+        return node;
+    }
+
+    private NodeAVL<E> rotateSL(NodeAVL<E> node) {
+        NodeAVL<E> p = (NodeAVL<E>) node.getRight();
+        node.setRight(p.getLeft());
+        p.setLeft(node);
+        node = p;
         return node;
     }
 }
