@@ -1,7 +1,7 @@
 package propuestos.estructuras;
 
 public class AVLTree<E extends Comparable<E>> extends BST<E> {
-    private boolean height;
+    protected boolean height;
 
     public AVLTree () {
         super();
@@ -100,5 +100,65 @@ public class AVLTree<E extends Comparable<E>> extends BST<E> {
                 break;
         }
         return node;
-     }
+    }
+
+
+    public void insert (E x) throws ItemDuplicated {
+        this.height = false;
+        this.root = insert(x, this.root);
+    }
+
+    protected Node<E> insert (E x, Node<E> node) throws ItemDuplicated {
+        Node<E> fat = node;
+
+        if (node == null) {
+            this.height = true;
+            fat = new Node<E>(x);
+        
+        } else {
+            int resC = node.getData().compareTo(x);
+
+            if (resC == 0) throw new ItemDuplicated("Duplicado");
+            if (resC  < 0) {
+                fat.setRight( insert(x, node.getRight()) );
+                if (this.height) {
+                    switch (fat.bf) {
+                        case -1:
+                            fat.bf = 0;
+                            this.height = false;
+                            break;
+                    
+                        case 0:
+                            fat.bf = 1;
+                           break;
+                        
+                        case 1:
+                            fat = balanceToLeft(fat);
+                            this.height = false;
+                            break;
+                    }
+                }
+            } else {
+                fat.setLeft( insert(x, node.getLeft()) );
+                if (this.height) {
+                    switch (fat.bf) {
+                        case -1:
+                            fat = balanceToRight(fat);
+                            this.height = false;
+                            break;
+                    
+                        case 0:
+                            fat.bf = -1;
+                            break;
+                        
+                        case 1:
+                            fat.bf = 0;
+                            this.height = false;
+                            break;
+                    }
+                }
+            }
+        }
+        return fat;
+    }
 }
