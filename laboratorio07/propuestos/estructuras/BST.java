@@ -1,7 +1,7 @@
 package propuestos.estructuras;
 
-public class BST <T extends Comparable<T>> implements Tree<T> {
-    protected Node<T> root;
+public class BST <E extends Comparable<E>> implements Tree<E> {
+    protected Node<E> root;
 
     public BST () {
         this.root = null;
@@ -18,13 +18,13 @@ public class BST <T extends Comparable<T>> implements Tree<T> {
     }
 
     @Override
-    public void insert (T data) throws ItemDuplicated {
+    public void insert (E data) throws ItemDuplicated {
         this.root = insert(data, root);
     }
 
-    private Node<T> insert (T data, Node<T> actual) throws ItemDuplicated {
+    private Node<E> insert (E data, Node<E> actual) throws ItemDuplicated {
         
-        Node<T> result = actual;
+        Node<E> result = actual;
         if (actual == null)
             result = new Node<>(data);
         
@@ -40,12 +40,12 @@ public class BST <T extends Comparable<T>> implements Tree<T> {
     }
 
     @Override
-    public void remove (T data) throws ItemNotFound {
+    public void remove (E data) throws ItemNotFound {
         this.root = remove(data, root);
     }
 
-    private Node<T> remove (T data, Node<T> actual) throws ItemNotFound {
-        Node<T> result = actual;
+    private Node<E> remove (E data, Node<E> actual) throws ItemNotFound {
+        Node<E> result = actual;
 
         if (actual == null) throw new ItemNotFound("Elemento '" + data + "' No Encontrado.");
         int cmp = data.compareTo(actual.getData());
@@ -63,7 +63,7 @@ public class BST <T extends Comparable<T>> implements Tree<T> {
         return result;
     }
 
-    private Node<T> minRemove (Node<T> actual, Node<T> rootRemove) {
+    private Node<E> minRemove (Node<E> actual, Node<E> rootRemove) {
         
         if (actual.getLeft() != null) {
             actual.setLeft( minRemove(actual.getLeft(), rootRemove) );
@@ -76,11 +76,11 @@ public class BST <T extends Comparable<T>> implements Tree<T> {
     }
 
     @Override
-    public T search (T data) throws ItemNotFound {
+    public E search (E data) throws ItemNotFound {
         return search(data, root).getData();
     }
 
-    private Node<T> search (T data, Node<T> actual) throws ItemNotFound {
+    private Node<E> search (E data, Node<E> actual) throws ItemNotFound {
         if (actual == null) throw new ItemNotFound("Elemento '" + data + "' No Encontrado.");
         else {
             int cmp = data.compareTo(actual.getData());
@@ -91,37 +91,37 @@ public class BST <T extends Comparable<T>> implements Tree<T> {
     }
 
     @Override
-    public T min() throws ExceptionIsEmpty {
+    public E min() throws ExceptionIsEmpty {
         if (isEmpty())
             throw new ExceptionIsEmpty("El BST está vacío.");
         
         return min(root).getData();
     }
 
-    private Node<T> min(Node<T> actual) {
+    private Node<E> min(Node<E> actual) {
         if (actual.getLeft() == null) return actual;
         else                          return min(actual.getLeft());
     }
 
     @Override
-    public T max() throws ExceptionIsEmpty {
+    public E max() throws ExceptionIsEmpty {
         if (isEmpty())
             throw new ExceptionIsEmpty("El BST está vacío.");
         
         return max(root).getData();
     }
 
-    private Node<T> max (Node<T> actual) {
+    private Node<E> max (Node<E> actual) {
         if (actual.getRight() == null) return actual;
         else                           return max(actual.getRight());
     }
 
     @Override
-    public T predecesor(T data) throws ItemNotFound {
+    public E predecesor(E data) throws ItemNotFound {
         return predecesor(data, root, null).getData();
     }
 
-    private Node<T> predecesor(T data, Node<T> actual, Node<T> potencial) throws ItemNotFound {
+    private Node<E> predecesor(E data, Node<E> actual, Node<E> potencial) throws ItemNotFound {
         
         if (actual == null && potencial == null)
             throw new ItemNotFound("Elemento '" + data + "' No Tiene Predecesor.");
@@ -137,11 +137,11 @@ public class BST <T extends Comparable<T>> implements Tree<T> {
     }
 
     @Override
-    public T sucesor(T data) throws ItemNotFound {
+    public E sucesor(E data) throws ItemNotFound {
         return sucesor(data, root, null).getData();
     }
 
-    private Node<T> sucesor(T data, Node<T> actual, Node<T> potencial) throws ItemNotFound {
+    private Node<E> sucesor(E data, Node<E> actual, Node<E> potencial) throws ItemNotFound {
         
         if (actual == null && potencial == null)
             throw new ItemNotFound("Elemento '" + data + "' No Tiene Sucesor.");
@@ -161,7 +161,7 @@ public class BST <T extends Comparable<T>> implements Tree<T> {
         return preOrden(this.root).trim();
     }
 
-    public String preOrden (Node<T> actual) {
+    public String preOrden (Node<E> actual) {
         if (actual == null)
             return "";
         return actual.getData() + " " + preOrden(actual.getLeft()) + preOrden(actual.getRight());
@@ -172,7 +172,7 @@ public class BST <T extends Comparable<T>> implements Tree<T> {
         return inOrden(this.root).trim();
     }
 
-    public String inOrden (Node<T> actual) {
+    public String inOrden (Node<E> actual) {
         if (actual == null)
             return "";
         return inOrden(actual.getLeft()) + actual.getData() + " " + inOrden(actual.getRight());
@@ -183,7 +183,7 @@ public class BST <T extends Comparable<T>> implements Tree<T> {
         return postOrden(this.root).trim();
     }
 
-    public String postOrden (Node<T> actual) {
+    public String postOrden (Node<E> actual) {
         if (actual == null)
             return "";
         return postOrden(actual.getLeft()) + postOrden(actual.getRight()) + actual.getData() + " ";
