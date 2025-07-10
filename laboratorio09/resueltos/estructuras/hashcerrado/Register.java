@@ -1,4 +1,4 @@
-package resueltos.estructuras;
+package resueltos.estructuras.hashcerrado;
 
 public class Register<E> implements Comparable<Register<E>> {
     private int key;
