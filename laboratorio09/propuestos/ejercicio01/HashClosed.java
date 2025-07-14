@@ -3,14 +3,16 @@ package propuestos.ejercicio01;
 import java.util.LinkedList;
 
 public class HashClosed<E> {
-    private LinkedList<Register<E>> [] table;
+    private Register<E> [] table;
+    private int capacity;
+    private int count;
 
     @SuppressWarnings("unchecked")
     public HashClosed(int capacity) {
-        table = new LinkedList[capacity];
-
-        for(int i = 0 ; i < capacity ; i++)
-            table[i] = new LinkedList<>();
+        
+        table = new Register [capacity];
+        this.capacity = capacity;
+        this.count = 0;
     }
 
     private int hash(int key) {
