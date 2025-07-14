@@ -3,10 +3,12 @@ package propuestos.ejercicio01;
 public class Register<E> implements Comparable<Register<E>> {
     private int key;
     private E value;
-    
+    private boolean deleted;
+
     public Register(int key, E value) {
         this.key = key;
         this.value = value;
+        this.deleted = false;
     }
 
     public int getKey() {
@@ -19,6 +21,14 @@ public class Register<E> implements Comparable<Register<E>> {
     
     public void setValue(E value) {
         this.value = value;
+    }
+
+    public boolean isDeleted() {
+        return deleted;
+    }
+
+    public void delete() {
+        this.deleted = true;
     }
 
     @Override
