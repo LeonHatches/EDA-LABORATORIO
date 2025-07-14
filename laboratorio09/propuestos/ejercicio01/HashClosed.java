@@ -10,9 +10,10 @@ public class HashClosed<E> {
     @SuppressWarnings("unchecked")
     public HashClosed(int capacity) {
         
-        table = new Register [capacity];
-        this.capacity = capacity;
+        this.capacity = capacity * 2;
         this.count = 0;
+        table = new Register [this.capacity];
+        
     }
 
     private int hash(int key) {
@@ -22,14 +23,18 @@ public class HashClosed<E> {
     public void insert(Register<E> reg) {
         int index = hash(reg.getKey());
         
-        for (Register<E> r : table[index]) {
-            if (r.getKey() == reg.getKey() && !r.isDeleted()) {
-                System.out.println("Clave duplicada: " + reg.getKey());
-                return;
-            }
+        // for (Register<E> r : table[index]) {
+        //     if (r.getKey() == reg.getKey() && !r.isDeleted()) {
+        //         System.out.println("Clave duplicada: " + reg.getKey());
+        //         return;
+        //     }
+        // }
+        // table[index].add(reg);
+        // System.out.println("Insertado: " + reg);
+
+        while ( (table[index] != null || table[index].isDeleted())) {
+
         }
-        table[index].add(reg);
-        System.out.println("Insertado: " + reg);
     }
 
     public void delete(int key) {
