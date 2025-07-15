@@ -28,7 +28,11 @@ public class HashClosed<E> {
         return key % table.length;
     }
 
-    public void insert(Register<E> reg) {
+    public void insert (int key, E value) {
+        insert(new Register<E>(key, value));
+    }
+
+    private void insert(Register<E> reg) {
 
         if (isFull()) {
             System.out.println("El Hash está lleno.");
