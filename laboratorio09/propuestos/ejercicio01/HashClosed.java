@@ -41,7 +41,7 @@ public class HashClosed<E> {
         
         while (table[index] != null && !table[index].isDeleted() && table[index].compareTo(reg) != 0) {
             System.out.println("Se ha detectado una colisión, se busca nuevo lugar.");
-            index++;
+            index = hash(index + 1);
         }
 
         if (table[index].compareTo(reg) == 0) {
@@ -57,7 +57,7 @@ public class HashClosed<E> {
         int index = hash(key);
 
         while (table[index] != null && table[index].getKey() != key) {
-            index++;
+            index = hash(index + 1);
         }
 
         if (table[index] == null) {
@@ -67,7 +67,7 @@ public class HashClosed<E> {
 
         System.out.println("Se elimina: " + table[index]);
 
-        if (table[index + 1] != null)
+        if (table[ hash(index + 1) ] != null)
             table[index].delete();
 
         else
@@ -78,7 +78,7 @@ public class HashClosed<E> {
         int index = hash(key);
 
         while (table[index] != null && table[index].getKey() != key) {
-            index++;
+            index = hash(index + 1);
         }
 
         if (table[index].getKey() == key)
