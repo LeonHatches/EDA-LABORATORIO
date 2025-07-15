@@ -87,21 +87,17 @@ public class HashClosed<E> {
         return null;
     }
 
-    // public void showTable() {
-    //     System.out.println("\n--- Estado de la Tabla Hash (Abierto) ---");
+    public void showTable() {
+        System.out.println("\n--- Estado de la Tabla Hash (Closed) ---");
 
-    //     for(int i = 0 ; i < table.length ; i++) {
-    //         System.out.print(i + " : ");
+        for(int i = 0 ; i < table.length ; i++) {
+            System.out.print(i + " | ");
 
-    //         if (table[i].isEmpty())
-    //             System.out.println("[VACIO]");
+            if (table[i] == null)
+                System.out.println("[VACIO]");
             
-    //         else {
-    //             for(Register<E> r : table[i])
-    //                 System.out.print(r + " -> ");
-                
-    //             System.out.println("NULL");
-    //         }
-    //     }
-    // }
+            else
+                System.out.println(table[i]);
+        }
+    }
 }
