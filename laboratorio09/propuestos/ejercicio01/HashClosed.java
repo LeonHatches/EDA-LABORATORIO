@@ -53,19 +53,26 @@ public class HashClosed<E> {
         count++;
     }
 
-    // public void delete(int key) {
-    //     int index = hash(key);
+    public void delete(int key) {
+        int index = hash(key);
 
-    //     for (Register<E> r : table[index]) {
-    //         if (r.getKey() == key && !r.isDeleted()) {
-    //             r.delete();
-    //             System.out.println("Eliminado lógicamente: " + key);
-    //             return;
-    //         }
-    //     }
+        while (table[index] != null && table[index].getKey() != key) {
+            index++;
+        }
 
-    //     System.out.println("Clave no encontrada: " + key);
-    // }
+        if (table[index] == null) {
+            System.out.println("Clave no encontrada: " + key);
+            return;
+        }
+
+        System.out.println("Se elimina: " + table[index]);
+
+        if (table[index + 1] != null)
+            table[index].delete();
+
+        else
+            table[index] = null;
+    }
 
     public Register<E> search(int key) {
         int index = hash(key);
