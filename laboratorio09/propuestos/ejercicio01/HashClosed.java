@@ -23,7 +23,7 @@ public class HashClosed<E> {
     }
 
     private int hash(int key) {
-        return key % table.length;
+        return key % (this.capacity / 2);
     }
 
     public void insert (int key, E value) {
@@ -44,7 +44,7 @@ public class HashClosed<E> {
             index = hash(index + 1);
         }
 
-        if (table[index].compareTo(reg) == 0) {
+        if (table[index] != null && table[index].compareTo(reg) == 0) {
             System.out.println("Clave duplicada: " + reg.getKey());
             return;
         }
@@ -66,6 +66,7 @@ public class HashClosed<E> {
         }
 
         System.out.println("Se elimina: " + table[index]);
+        count--;
 
         if (table[ hash(index + 1) ] != null)
             table[index].delete();
@@ -81,7 +82,7 @@ public class HashClosed<E> {
             index = hash(index + 1);
         }
 
-        if (table[index].getKey() == key)
+        if (table[index] != null)
             return table[index];
 
         return null;
