@@ -5,7 +5,7 @@ import java.util.LinkedList;
 public class HashClosed<E> {
     private Register<E> [] table;
     private int capacity;
-    private int count;
+    private double count;
 
     @SuppressWarnings("unchecked")
     public HashClosed(int capacity) {
@@ -14,6 +14,14 @@ public class HashClosed<E> {
         this.count = 0;
         table = new Register [this.capacity];
         
+    }
+
+    private boolean isFull () {
+        return loadFactor() >= 0.5;
+    }
+
+    private double loadFactor () {
+        return this.count / this.capacity;
     }
 
     private int hash(int key) {
