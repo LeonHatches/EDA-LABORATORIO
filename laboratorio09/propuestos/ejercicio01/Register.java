@@ -38,6 +38,6 @@ public class Register<E> implements Comparable<Register<E>> {
 
     @Override
     public String toString() {
-        return key + " : " + value;
+        return deleted ? "[ELIMINADO]" : key + " : " + value;
     }
 }
