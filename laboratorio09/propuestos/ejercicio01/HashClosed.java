@@ -67,15 +67,18 @@ public class HashClosed<E> {
     //     System.out.println("Clave no encontrada: " + key);
     // }
 
-    // public Register<E> search(int key) {
-    //     int index = hash(key);
+    public Register<E> search(int key) {
+        int index = hash(key);
 
-    //     while (table[index] != null && table[index].getValue().compareTo) {
+        while (table[index] != null && table[index].getKey() != key) {
+            index++;
+        }
 
-    //     }
+        if (table[index].getKey() == key)
+            return table[index];
 
-    //     return null;
-    // }
+        return null;
+    }
 
     // public void showTable() {
     //     System.out.println("\n--- Estado de la Tabla Hash (Abierto) ---");
