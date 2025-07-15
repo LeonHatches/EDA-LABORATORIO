@@ -29,20 +29,21 @@ public class HashClosed<E> {
     }
 
     public void insert(Register<E> reg) {
+
+        if (isFull()) {
+            System.out.println("El Hash está lleno.");
+            return;
+        }
+
         int index = hash(reg.getKey());
         
-        // for (Register<E> r : table[index]) {
-        //     if (r.getKey() == reg.getKey() && !r.isDeleted()) {
-        //         System.out.println("Clave duplicada: " + reg.getKey());
-        //         return;
-        //     }
-        // }
-        // table[index].add(reg);
-        // System.out.println("Insertado: " + reg);
-
-        while ( (table[index] != null || table[index].isDeleted())) {
-
+        while ( (table[index] != null && !table[index].isDeleted())) {
+            System.out.println("Se ha detectado una colisión, se busca nuevo lugar.");
+            index++;
         }
+
+        table[index] = reg;
+        count++;
     }
 
     public void delete(int key) {
