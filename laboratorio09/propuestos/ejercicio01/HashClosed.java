@@ -62,7 +62,7 @@ public class HashClosed<E> {
             index = hash(index + 1);
         }
 
-        if (table[index] == null) {
+        if (table[index] == null || table[index].isDeleted()) {
             System.out.println("Clave no encontrada: " + key);
             return;
         }
@@ -84,7 +84,7 @@ public class HashClosed<E> {
             index = hash(index + 1);
         }
 
-        if (table[index] != null)
+        if (table[index] != null && !table[index].isDeleted())
             return table[index];
 
         return null;
