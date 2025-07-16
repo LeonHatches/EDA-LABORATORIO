@@ -17,7 +17,11 @@ public class HashOpened<E> {
         return key % table.length;
     }
 
-    public void insert(Register<E> reg) {
+    public void insert(int key, E data) {
+        insert(new Register<E>(key, data));
+    }
+
+    private void insert(Register<E> reg) {
         int index = hash(reg.getKey());
         
         for (Register<E> r : table[index]) {
