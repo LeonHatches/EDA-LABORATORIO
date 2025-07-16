@@ -8,14 +8,14 @@ public class HashClosed<E> {
     @SuppressWarnings("unchecked")
     public HashClosed(int capacity) {
         
-        this.capacity = capacity * 2;
+        this.capacity = capacity;
         this.count = 0;
         table = new Register [this.capacity];
         
     }
 
     private boolean isFull () {
-        return loadFactor() >= 0.5;
+        return loadFactor() == 1;
     }
 
     private double loadFactor () {
@@ -23,34 +23,36 @@ public class HashClosed<E> {
     }
 
     private int hash(int key) {
-        return key % (this.capacity / 2);
+        return key % this.capacity;
     }
 
-    public void insert (int key, E value) {
-        insert(new Register<E>(key, value));
+    public boolean insert (int key, E value) {
+        return insert(new Register<E>(key, value));
     }
 
-    private void insert(Register<E> reg) {
+    private boolean insert(Register<E> reg) {
 
         if (isFull()) {
             System.out.println("El Hash está lleno.");
-            return;
+            return false;
         }
 
         int index = hash(reg.getKey());
         
         while (table[index] != null && !table[index].isDeleted() && table[index].compareTo(reg) != 0) {
+            
             System.out.println("Se ha detectado una colisión, se busca nuevo lugar.");
             index = hash(index + 1);
         }
 
-        if (table[index] != null && table[index].compareTo(reg) == 0) {
-            System.out.println("Clave duplicada: " + reg.getKey());
-            return;
+        if (table[index] == null || table[index].isDeleted()) {
+            table[index] = reg;
+            count++;
+            return true;
         }
 
-        table[index] = reg;
-        count++;
+        System.out.println("Clave duplicada: " + reg.getKey());
+        return false;
     }
 
     public void delete(int key) {
